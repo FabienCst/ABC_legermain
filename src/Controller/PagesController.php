@@ -40,6 +40,11 @@ class PagesController extends AppController
      */
     public function display(...$path)
     {
+        // Chargement du model "Prestations"
+        $this->loadModel('Prestations');
+        $prestations = $this->Prestations->find('all', ['limit' => 3,'order' => 'Prestations.idPrestation ASC']);
+        $this->set('prestations',$prestations);
+
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');
