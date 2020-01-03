@@ -44,13 +44,14 @@ $cakeDescription = 'ABC Legermain | Accueil';
     <nav>
     	<div class="logo">
     		<?= $this->Html->image('abc-logo.png') ?>
-    	</div>
     	<ul>
     		<li><a href="#">Accueil</a></li>
     		<?php foreach($prestations as $prestation):?>
-    		    <li><a href="#"><?= $prestation->titre ?></a></li>
+    		<li><?= $this->Html->link(__($prestation->titre), ['controller' => 'GalerieRealisations' , 'action' => 'index', $prestation->idPrestation]) ?></li>
     		<?php endforeach; ?>
+    		<li><?= $this->Html->link(__('Demander un devis'), ['controller' => 'Devis' , 'action' => 'index']) ?></li>
     	</ul>
+    	</div>
     </nav>
     <section class="sec1"></section>
     <section class="content">
