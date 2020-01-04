@@ -20,6 +20,9 @@ class DevisController extends AppController
         }
         $this->set('projet',$projet);
 
+        $date = date('Y-m-d');
+        $this->set('date',$date);
+
         $this->set(compact('projets'));
     }
 }

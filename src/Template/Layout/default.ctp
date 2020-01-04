@@ -99,7 +99,7 @@ $cakeDescription = 'ABC Legermain';
           </ul>
 
           <div class="logo-footer">
-            <?= $this->Html->image('menu-logo.svg') ?>
+            <?= $this->Html->image('abc-logo.png') ?>
           </div>
 
           <ul>
