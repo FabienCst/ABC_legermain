@@ -51,5 +51,10 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+
+        $this->loadModel('Prestations');
+        $prestations = $this->Prestations->find('all', ['limit' => 3,'order' => 'Prestations.idPrestation ASC']);
+        $this->set('prestations',$prestations);
     }
+
 }
