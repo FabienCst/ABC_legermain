@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 
-class AdminPrestationsController
+class AdminPrestationsController extends AppController
 {
     public function index(){}
 
