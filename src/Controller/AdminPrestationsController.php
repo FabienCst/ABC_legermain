@@ -16,4 +16,14 @@ class AdminPrestationsController extends AppController
     public function view(){}
 
     public function add(){}
+
+    public function isAuthorized($user) {
+
+
+        $action = $this->request->getParam('action');
+        $pass1 = ($user['idArtisan']->Artisan->exists('idArtisan'));
+
+        return $pass1 ;
+
+    }
 }
