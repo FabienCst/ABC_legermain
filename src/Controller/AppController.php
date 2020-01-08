@@ -46,6 +46,33 @@ class AppController extends Controller
         ]);
         $this->loadComponent('Flash');
 
+        // test identification //
+
+        $this->loadComponent(
+            'Auth', [
+                'authorize'=> 'Controller',
+                'authenticate' => [
+                    'Form' => [
+                        'fields' => [
+                            'username' => 'identifiant',
+                            'password' => 'mot_de_passe'
+                        ]
+                    ]
+                ],
+                'loginAction' => [
+                    'controller' => 'Administrateurs',
+                    'action' => 'login'
+                ],
+                // Si pas autorisé, on renvoit sur la page précédente
+                'unauthorizedRedirect' => $this->referer()
+            ]
+        );
+        // Autorise l'action display pour que notre controller de pages // continue de fonctionner.
+        $this->Auth->allow(['display']);
+
+
+        // test identification //
+
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
