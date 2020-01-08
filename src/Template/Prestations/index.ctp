@@ -4,6 +4,12 @@
  * @var \App\Model\Entity\Prestation[]|\Cake\Collection\CollectionInterface $prestations
  */
 ?>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('New Prestation'), ['action' => 'add']) ?></li>
+    </ul>
+</nav>
 <div class="prestations index large-9 medium-8 columns content">
     <h3><?= __('Prestations') ?></h3>
     <table cellpadding="0" cellspacing="0">

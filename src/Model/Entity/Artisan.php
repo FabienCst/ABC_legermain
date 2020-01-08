@@ -20,15 +20,20 @@ class Artisan extends Entity
 
     ];
 
-   /* // Tout le code de bake sera ici.
+    /**
+     * Fields that are excluded from JSON versions of the entity.
+     *
+     * @var array
+     */
+    protected $_hidden = [
+        'password'
+    ];
 
-    // Ajoutez cette méthode
-    protected function _setPassword($value)
-    {
+    protected function _setPassword($value) {
+
         if (strlen($value)) {
             $hasher = new DefaultPasswordHasher();
-
             return $hasher->hash($value);
         }
-    }*/
+    }
 }

@@ -56,25 +56,28 @@ class AppController extends Controller
         $prestations = $this->Prestations->find('all', ['limit' => 3,'order' => 'Prestations.idPrestation ASC']);
         $this->set('prestations',$prestations);
 
-        $this->loadComponent('Auth', [
-            'authenticate' => [
-                'Form' => [
-                    'fields' => [
-                        'username' => 'identifiant',
-                        'password' => 'mot_de_passe'
+        $this->loadComponent(
+            'Auth', [
+                'authorize'=> 'Controller',
+                'authenticate' => [
+                    'Form' => [
+                        'fields' => [
+                            'username' => 'identifiant',
+                            'password' => 'mot_de_passe'
+                        ]
                     ]
-                ]
-            ],
-            'loginAction' => [
-                'controller' => 'Artisan',
-                'action' => 'login'
-            ],
-            // Si pas autorisé, on renvoit sur la page précédente
-            'unauthorizedRedirect' => $this->referer()
-        ]);
+                ],
+                'loginAction' => [
+                    'controller' => 'Artisans',
+                    'action' => 'login'
+                ],
+                // Si pas autorisé, on renvoit sur la page précédente
+                'unauthorizedRedirect' => $this->referer()
+            ]
+        );
 
-        // Permet à l'action "display" de notre PagesController de continuer à fonctionner. Autorise également les actions "read-only".
-        $this->Auth->allow(['display', 'view', 'index']);
+        // Autorise l'action display pour que notre controller de pages // continue de fonctionner.
+        $this->Auth->allow(['display']);
     }
 
 }
