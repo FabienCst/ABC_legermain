@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Projet[]|\Cake\Collection\CollectionInterface $projets
  */
 ?>
-<?= $this->Html->css('devis.css') ?>
+<?= $this->Html->css('recrutement.css') ?>
 
 
 <section class="sec1"></section>

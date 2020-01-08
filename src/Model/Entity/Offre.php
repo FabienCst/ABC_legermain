@@ -7,6 +7,7 @@ use Cake\ORM\Entity;
  * Offre Entity
  *
  * @property int $idOffre
+ * @property string $titre
  * @property string $type
  * @property string $description
  * @property string $exp_requise
@@ -27,6 +28,7 @@ class Offre extends Entity
      * @var array
      */
     protected $_accessible = [
+        'titre' => true,
         'type' => true,
         'description' => true,
         'exp_requise' => true,
