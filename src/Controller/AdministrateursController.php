@@ -36,9 +36,9 @@ class AdministrateursController extends AppController
      **/
     public function login() {
         if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
+            $administrateur = $this->Auth->identify();
+            if ($administrateur) {
+                $this->Auth->setUser($administrateur);
                 return $this->redirect($this->Auth->redirectUrl());
             }
             $this->Flash->error('Votre identifiant ou votre mot de passe est incorrect.');
@@ -131,12 +131,12 @@ class AdministrateursController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function isAuthorized($user) {
+    public function isAuthorized($administrateur) {
 
         $action = $this->request->getParam('action');
-        $pass1 = ($user['actif'] === 1);
+        $pass1 = ($administrateur['actif'] === 1);
         $pass2 = in_array($action, ['login', 'logout']);
 
-        return $pass2;
+        return $pass1 || $pass2;
     }
 }
