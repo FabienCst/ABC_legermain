@@ -103,7 +103,7 @@ $cakeDescription = 'ABC Legermain';
           </div>
 
           <ul>
-            <li><a href="#">Recrutement</a></li>
+            <li><?= $this->Html->link(__('Recrutement'), ['controller' => 'Recrutement' , 'action' => 'index']) ?></li>
             <li><?= $this->Html->link(__('Demander un devis'), ['controller' => 'Devis' , 'action' => 'index']) ?></li>
           </ul>
 

@@ -62,6 +62,12 @@ class RealisationsTable extends Table
             ->allowEmptyDate('date');
 
         $validator
+            ->scalar('image')
+            ->maxLength('image', 100)
+            ->requirePresence('image', 'create')
+            ->notEmptyFile('image');
+
+        $validator
             ->integer('idPrestation')
             ->requirePresence('idPrestation', 'create')
             ->notEmptyString('idPrestation');

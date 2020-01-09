@@ -18,6 +18,7 @@
                 <th scope="col"><?= $this->Paginator->sort('idRealisation') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('titre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('date') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('image') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('idPrestation') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -28,6 +29,7 @@
                 <td><?= $this->Number->format($realisation->idRealisation) ?></td>
                 <td><?= h($realisation->titre) ?></td>
                 <td><?= h($realisation->date) ?></td>
+                <td><?= h($realisation->image) ?></td>
                 <td><?= $this->Number->format($realisation->idPrestation) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $realisation->idRealisation]) ?>

@@ -48,6 +48,12 @@ class OffresTable extends Table
             ->allowEmptyString('idOffre', null, 'create');
 
         $validator
+            ->scalar('titre')
+            ->maxLength('titre', 100)
+            ->requirePresence('titre', 'create')
+            ->notEmptyString('titre');
+
+        $validator
             ->scalar('type')
             ->maxLength('type', 30)
             ->requirePresence('type', 'create')

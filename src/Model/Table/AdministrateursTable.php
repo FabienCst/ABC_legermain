@@ -1,32 +1,53 @@
 <?php
-
-
 namespace App\Model\Table;
 
-
+use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
-use Cake\ORM\Query;
 use Cake\Validation\Validator;
 
-class ArtisansTable extends Table
+/**
+ * Administrateurs Model
+ *
+ * @method \App\Model\Entity\Administrateur get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Administrateur newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Administrateur[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Administrateur|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Administrateur saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Administrateur patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Administrateur[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Administrateur findOrCreate($search, callable $callback = null, $options = [])
+ */
+class AdministrateursTable extends Table
 {
+    /**
+     * Initialize method
+     *
+     * @param array $config The configuration for the Table.
+     * @return void
+     */
     public function initialize(array $config)
     {
         parent::initialize($config);
 
-        $this->setTable('artisans');
-        $this->setDisplayField('idArtisan');
-        $this->setPrimaryKey('idArtisan');
+        $this->setTable('administrateurs');
+        $this->setDisplayField('idAdministrateur');
+        $this->setPrimaryKey('idAdministrateur');
     }
 
+    /**
+     * Default validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('idArtisan')
-            ->allowEmptyString('idArtisan', null, 'create');
+            ->integer('idAdministrateur')
+            ->allowEmptyString('idAdministrateur', null, 'create');
 
-         $validator
+        $validator
             ->scalar('identifiant')
             ->maxLength('identifiant', 100)
             ->requirePresence('identifiant', 'create')
@@ -51,8 +72,7 @@ class ArtisansTable extends Table
             ->notEmptyString('prenom');
 
         $validator
-            ->scalar('email')
-            ->maxLength('email', 100)
+            ->email('email')
             ->requirePresence('email', 'create')
             ->notEmptyString('email');
 
@@ -62,8 +82,12 @@ class ArtisansTable extends Table
             ->requirePresence('telephone', 'create')
             ->notEmptyString('telephone');
 
+        $validator
+            ->integer('actif')
+            ->notEmptyString('actif');
+
         return $validator;
-}
+    }
 
     /**
      * Returns a rules checker object that will be used for validating
@@ -74,7 +98,7 @@ class ArtisansTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['identifiant']));
+        $rules->add($rules->isUnique(['email']));
 
         return $rules;
     }

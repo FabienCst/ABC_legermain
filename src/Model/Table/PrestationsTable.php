@@ -63,6 +63,12 @@ class PrestationsTable extends Table
             ->requirePresence('description', 'create')
             ->notEmptyString('description');
 
+        $validator
+            ->scalar('image')
+            ->maxLength('image', 100)
+            ->requirePresence('image', 'create')
+            ->notEmptyFile('image');
+
         return $validator;
     }
 }

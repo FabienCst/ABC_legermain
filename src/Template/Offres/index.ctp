@@ -16,6 +16,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('idOffre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('titre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('type') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('exp_requise') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('corps_metier') ?></th>
@@ -29,6 +30,7 @@
             <?php foreach ($offres as $offre): ?>
             <tr>
                 <td><?= $this->Number->format($offre->idOffre) ?></td>
+                <td><?= h($offre->titre) ?></td>
                 <td><?= h($offre->type) ?></td>
                 <td><?= h($offre->exp_requise) ?></td>
                 <td><?= h($offre->corps_metier) ?></td>

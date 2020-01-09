@@ -17,6 +17,10 @@
     <h3><?= h($offre->idOffre) ?></h3>
     <table class="vertical-table">
         <tr>
+            <th scope="row"><?= __('Titre') ?></th>
+            <td><?= h($offre->titre) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Type') ?></th>
             <td><?= h($offre->type) ?></td>
         </tr>
