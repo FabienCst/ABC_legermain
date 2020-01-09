@@ -125,7 +125,7 @@ $cakeDescription = 'ABC Legermain | Accueil';
     </section>
     <section class="footer">
         <div class="icones-footer">
-            <p1><a href="#" ><?= $this->Html->image('instagram.svg', array('width'=>'45px','height'=>'45px')) ?></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" ><?= $this->Html->image('facebook-circular-logo.svg', array('width'=>'45px','height'=>'45px')) ?></a></p1>
+            <p1><a href="https://www.instagram.com" ><?= $this->Html->image('instagram.svg', array('width'=>'45px','height'=>'45px')) ?></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/" ><?= $this->Html->image('facebook-circular-logo.svg', array('width'=>'45px','height'=>'45px')) ?></a></p1>
         </div>
         <div class="recrutement-devis-footer">
             <p><?= $this->Html->link(('Recrutement'), ['controller' => 'Recrutement' , 'action' => 'index']) ?></p>
