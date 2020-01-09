@@ -7,17 +7,19 @@ section.sec1
     height: 100vh;
     background: url("../img/fond-pro.jpg");
     background-size: cover;
+    margin-bottom: 100px;
 }
 
 section.content
 {
-    margin: 100px 25% 100px 25%;
+    margin-left:  25% ;
+    margin-right: 25%;
 }
 
 div.resume {
     padding: 15px 30px 15px 30px;
     background-color: #855D43;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
     box-shadow: 0 1px 12px #000000;
 }
 

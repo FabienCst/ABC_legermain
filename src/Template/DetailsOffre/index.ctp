@@ -32,7 +32,11 @@
 
                     </div>
 
-                </div>
+        </div>
+        <div class="description">
+            <h2 class="descri"> Description</h2>
+            <p class="descri"><?= h($offre->description) ?></p>
+        </div>
 
     <?php endforeach; ?>
 
