@@ -179,6 +179,7 @@ ul li ul, ul li ul li {
     vertical-align: -1px;
 }
 
+<<<<<<< Updated upstream
 .success:before {
     color: #88c671;
     content: "\0056";
@@ -193,6 +194,48 @@ ul li ul, ul li ul li {
     color: #404041;
     content: "\0059";
 }
+=======
+div.docs img
+{
+    width: 45px;
+    height: 45px;
+}
+
+div.btn_devis
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    box-shadow: 0 1px 12px #000000;
+    border-radius: 100px;
+    padding: 10px 30px 10px 30px;
+    background: #2A5858;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
+div.btn_devis p
+{
+    text-decoration: none;
+    color: white;
+    font-size: 1.6em;
+    margin-left: 120px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+div.docs img
+{
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-bottom: -50px;
+}
+
+>>>>>>> Stashed changes
 
 .book:before {
     color: #404041;
@@ -237,4 +280,9 @@ hr {
     header.row {
         max-width: 940px;
     }
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 }

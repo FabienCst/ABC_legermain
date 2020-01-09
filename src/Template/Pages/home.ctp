@@ -71,6 +71,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     </div>
 </div>
 
+<<<<<<< Updated upstream
 <div class="row">
     <div class="columns large-6">
         <h4>Environment</h4>
@@ -271,6 +272,18 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         </ul>
     </div>
 </div>
+=======
+    <div class="btn_devis">
+        <a href="/devis/index";">
+        <div class="docs">
+            <?= $this->Html->image('docs.svg') ?>
+        </div>
+        <div>
+            <p>Demander un devis</p>
+        </div>
+        <a>
+    </div>
+>>>>>>> Stashed changes
 
 </body>
 </html>
