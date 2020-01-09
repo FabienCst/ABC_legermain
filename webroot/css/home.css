@@ -82,20 +82,97 @@ section.sec1
 section.content
 {
     padding: 100px;
+    background-color: #C7A789;
 }
 
 section.content h1
 {
-    margin: 0;
-    padding: 0;
-    font-size: 2em;
+    /*font-family: "Hatorri Hanzo";*/
 }
 
-section.content p
+
+
+/*section.content p1
 {
-    margin: 20px 0 0;
-    padding: 0;
+    margin: 20px 0  0 25%;
+    padding-right: 75%;
     font-size: 1.2em;
+    color: #FFFFFF;
+
+}*/
+
+.presentation-blocs
+{
+    margin: 20px 12% 0 0;
+}
+
+.presentation-blocs1\&3
+{
+    margin: 20px 0 0 15%;
+    padding-right: 50%;
+    font-size: 1.2em;
+    color: #FFFFFF;
+}
+
+.presentation-blocs2\&4
+{
+    margin: 20px 0 0 0;
+    padding-left: 60%;
+    font-size: 1.2em;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.labels
+{
+    margin: 0 0 0 20%;
+}
+
+section.bande_labels
+{
+    background-color: #2A5858;
+    padding: 30px;
+}
+
+.phrase-accroche
+{
+
+    padding:  0 20% 0 23%;
+    font-size: 2em;
+    color: #FFFFFF;
+
+}
+
+section.bande-contact
+{
+    background-color: #443226;
+    padding: 20px 0 300px 0;
+
+}
+
+section.bande-contact h1
+{
+    color: #FFFFFF;
+    font-size: 4em;
+    margin: 20px 0 0 0;
+}
+
+.contact
+{
+
+    margin: 0 0 0 10%;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    display: inline-block;
+
+}
+
+.carte
+{
+   float: right;
+    margin-right: 30px;
+    display: inline-block;
+
 }
 
 .responsive-bar

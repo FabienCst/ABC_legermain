@@ -55,16 +55,60 @@ $cakeDescription = 'ABC Legermain | Accueil';
     </nav>
     <section class="sec1"></section>
     <section class="content">
-        <h1>Novo denique perniciosoque</h1>
-        <p>
-        Novo denique perniciosoque exemplo idem Gallus ausus est inire flagitium grave, quod Romae cum ultimo dedecore
-        temptasse aliquando dicitur Gallienus, et adhibitis paucis clam ferro succinctis vesperi per tabernas palabatur
-        et conpita quaeritando Graeco sermone, cuius erat inpendio gnarus, quid de Caesare quisque sentiret. et haec
-        confidenter agebat in urbe ubi pernoctantium luminum claritudo dierum solet imitari fulgorem. postremo agnitus
-        saepe iamque, si prodisset, conspicuum se fore contemplans, non nisi luce palam egrediens ad agenda quae putabat
-        seria cernebatur. et haec quidem medullitus multis gementibus agebantur.
-        </p>
+        <div class ="presentation-blocs">
+            <div class="presentation-blocs1&3">
+                <hr width="70%" color="white" size="6" align="left">
+                <h1>"MODERNE"</h1>
+                <p1>La société Legermain, jeune entreprise alliant créativité et dynamisme, vous propose de mettre son savoir-faire.
+                </p1>
+            </div>
+            <hr width="25%" color="white" size="6" align="right">
+            <div class="presentation-blocs2&4">
+                <h1>"PROFESSIONNEL"</h1>
+                <p1> Pour  vos travaux de charpente, couverture, escaliers et autres ouvrages spécifiques faites confiance à deux techniciens du bois, André Legermain et Philippe Troquin habitués à intervenir, notamment, sur des bâtiments classés Monuments Historiques.
+                </p1>
+            </div>
+            <div class="presentation-blocs1&3">
+                <hr width="70%" color="white" size="6" align="left">
+                <h1>"ATTENTIF"</h1>
+                <p1>Nous apportons un soin particulier à l’écoute et au conseil, deux points essentiels qui précédent la réalisation de vos ouvrages. Réaliser un travail artisanal, respectueux des traditions, tout en accordant notre prestation à votre budget, telle est notre ambition.
+                </p1>
+            </div>
+                <hr width="25%" color="white" size="6" align="right">
+            <div class="presentation-blocs2&4">
+                <h1>"PERSONNALISÉ"</h1>
+                <p1>Nous serons également enchantés de répondre à votre demande pour tout ouvrage spécifique, personnalisé ou non conventionnel.
+                </p1>
+            </div>
+        </div>
+
     </section>
-    <li><?= $this->Html->link(__('New Prestation'), ['controller' => 'Prestations' , 'action' => 'add']) ?></li>
+    <section class="bande_labels">
+        <div class="labels">
+            <p>
+                <?= $this->Html->image('labels.svg') ?>
+            </p>
+        </div>
+    </section>
+    <section class="content">
+        <div class="phrase-accroche">
+            <p>"Afin d’être plus concret, nous vous invitons à découvrir, en images, les ouvrages déjà réalisés."</p>
+            <p></p>
+        </div>
+    </section>
+    <section class="bande-contact">
+        <div class="contact">
+            <hr width="110%" color="white" size="6" align="left">
+            <h1>CONTACT</h1>
+            <p> <?= $this->Html->image('map-placeholder.svg', array('width'=>'20px','height'=>'20px')) ?>&nbsp;&nbsp; Zone Artisanale 72140 Rouez en Champagne</p>
+            <p> <?= $this->Html->image('enveloppe.svg', array('width'=>'20px','height'=>'20px')) ?> &nbsp;&nbsp;infos@legermain.com</p>
+            <p> <?= $this->Html->image('call-answer.svg', array('width'=>'20px','height'=>'20px')) ?> &nbsp;&nbsp;02 47 36 70 34 </p>
+            <p2>Suivez-nous &nbsp;&nbsp;&nbsp;&nbsp;<?= $this->Html->image('facebook-circular-logo.svg', array('width'=>'30px','height'=>'30px')) ?> &nbsp;&nbsp;&nbsp;<?= $this->Html->image('instagram.svg', array('width'=>'30px','height'=>'30px')) ?></p2>
+        </div>
+        <div class="carte">
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1G3PQ94Qeh8OPmpq3pzgw-IR9AE_MBLCq" width="640" height="480"></iframe>
+        </div>
+    </section>
+
 </body>
 </html>
