@@ -49,6 +49,19 @@ class PrestationsController extends AppController
     {
         $prestation = $this->Prestations->newEntity();
         if ($this->request->is('post')) {
+
+            $myname = $this->request->getData()['file']['name'];
+            $mytmp = $this->request->getData()['file']['tmp_name'];
+            $myext = substr(strrchr($myname,"."),1);
+            $mypath = "upload/".security::hash($myname).".".$myext;
+            $file= $this->Files->newEntity();
+            $file->name=$myname;
+            $file->path=$mypath;
+            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)){
+                $this->Files->save($file);
+                return $this->redirect(['action'=>"index"]);
+            }
+
             $prestation = $this->Prestations->patchEntity($prestation, $this->request->getData());
             if ($this->Prestations->save($prestation)) {
                 $this->Flash->success(__('The prestation has been saved.'));

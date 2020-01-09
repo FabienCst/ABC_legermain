@@ -32,6 +32,7 @@ $cakeDescription = 'ABC Legermain | Accueil';
 
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('home.css') ?>
+    <?= $this->Html->css('simple-slideshow-styles.css') ?>
 
 <body>
     <div class="responsive-bar">
@@ -67,7 +68,47 @@ $cakeDescription = 'ABC Legermain | Accueil';
     	</div>
     </nav>
 
-    <section class="sec1"></section>
+    <section class="sec1">
+
+    <div class="bss-slides num1" tabindex="1" autofocus="autofocus">
+                <figure>
+    		      <img src="/img/fond-accueil.png" width="100%" /><figcaption>"Medium" by <a href="https://www.flickr.com/photos/thomashawk/14586158819/">Thomas Hawk</a>.</figcaption>
+                </figure>
+                <figure>
+    		      <img src="/img/fond-accueil.png" width="100%" /><figcaption>"Colorado" by <a href="https://www.flickr.com/photos/stuckincustoms/88370744">Trey Ratcliff</a>.</figcaption>
+                </figure>
+                <figure>
+    		      <img src="/img/fond-accueil.png" width="100%" /><figcaption>"Early Morning at the Monte Vista Wildlife Refuge, Colorado" by <a href="https://www.flickr.com/photos/davesoldano/8572429635">Dave Soldano</a>.</figcaption>
+                </figure>
+                <figure>
+    		      <img src="/img/fond-accueil.png" width="100%" /><figcaption>"Sunrise in Eastern Colorado" by <a href="https://www.flickr.com/photos/35528040@N04/6673031153">Pam Morris</a>.</figcaption>
+                </figure>
+                <figure>
+    		      <img src="/img/fond-accueil.png" width="100%" /><figcaption>"colorado colors" by <a href="https://www.flickr.com/photos/cptspock/2857543585">Jasen Miller</a>.</figcaption>
+                </figure>
+            </div> <!-- // bss-slides -->
+    <script src="demo/js/hammer.min.js"></script><!-- for swipe support on touch interfaces -->
+    <script src="js/better-simple-slideshow.min.js"></script>
+    <script>
+    var opts = {
+        auto : {
+            speed : 3500,
+            pauseOnHover : true
+        },
+        fullScreen : false,
+        swipe : true
+    };
+    makeBSS('.num1', opts);
+
+    var opts2 = {
+        auto : false,
+        fullScreen : true,
+        swipe : true
+    };
+    makeBSS('.num2', opts2);
+    </script>
+
+    </section>
     <section class="content">
         <div class ="presentation-blocs">
             <div class="presentation-blocs1&3">
