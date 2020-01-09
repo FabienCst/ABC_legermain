@@ -29,8 +29,12 @@
 </section>
 
 <div class="btn_devis">
-    <div class="docs">
-        <?= $this->Html->image('docs.svg') ?>
-    </div>
-    <?= $this->Html->link(__('Demander un devis'), ['controller' => 'Devis' , 'action' => 'index']) ?>
+    <a href="/devis/index";">
+        <div class="docs">
+            <?= $this->Html->image('docs.svg') ?>
+        </div>
+        <div>
+            <p>Demander un devis</p>
+        </div>
+    <a>
 </div>
