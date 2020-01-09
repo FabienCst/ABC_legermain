@@ -61,6 +61,12 @@ class ActualitesTable extends Table
             ->date('date')
             ->allowEmptyDate('date');
 
+        $validator
+            ->scalar('image')
+            ->maxLength('image', 100)
+            ->requirePresence('image', 'create')
+            ->notEmptyFile('image');
+
         return $validator;
     }
 }

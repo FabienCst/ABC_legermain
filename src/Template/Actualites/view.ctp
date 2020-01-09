@@ -21,6 +21,10 @@
             <td><?= h($actualite->titre) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Image') ?></th>
+            <td><?= h($actualite->image) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('IdActualite') ?></th>
             <td><?= $this->Number->format($actualite->idActualite) ?></td>
         </tr>

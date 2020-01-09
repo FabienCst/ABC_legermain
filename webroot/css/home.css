@@ -65,6 +65,16 @@ nav ul li a
     transition: 0.5s;
 }
 
+.separation1
+{
+    display: none;
+}
+
+.separation2
+{
+    display: none;
+}
+
 nav ul li a:hover
 {
     color: #58B8B8;
@@ -82,20 +92,123 @@ section.sec1
 section.content
 {
     padding: 100px;
+    background-color: #C7A789;
 }
 
 section.content h1
 {
-    margin: 0;
-    padding: 0;
-    font-size: 2em;
+    /*font-family: "Hatorri Hanzo";*/
 }
 
-section.content p
+nav.black .separation1
 {
-    margin: 20px 0 0;
-    padding: 0;
+    display: block;
+    overflow: visible;
+    width: 3px;
+    height: 18px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: matrix(1,0,0,1,0,0);
+}
+
+
+nav.black .separation2
+{
+    display: block;
+    overflow: visible;
+    width: 3px;
+    height: 18px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: matrix(1,0,0,1,0,0);
+}
+
+
+/*section.content p1
+{
+    margin: 20px 0  0 25%;
+    padding-right: 75%;
     font-size: 1.2em;
+    color: #FFFFFF;
+
+}*/
+
+.presentation-blocs
+{
+    margin: 20px 20% 0 0;
+}
+
+.presentation-blocs1\&3
+{
+    margin: 20px 0 0 23%;
+    padding-right: 50%;
+    font-size: 1.5em;
+    color: #FFFFFF;
+}
+
+.presentation-blocs2\&4
+{
+    margin: 20px 0 0 0;
+    padding-left: 60%;
+    font-size: 1.5em;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.labels
+{
+    margin: 0 0 0 20%;
+}
+
+section.bande_labels
+{
+    background-color: #2A5858;
+    padding: 30px;
+}
+
+.phrase-accroche
+{
+
+    padding:  0 20% 0 23%;
+    font-size: 2em;
+    color: #FFFFFF;
+
+}
+
+section.bande-contact
+{
+    background-color: #443226;
+    padding: 300px 0 300px 0;
+
+}
+
+section.bande-contact h1
+{
+    color: #FFFFFF;
+    font-size: 4em;
+    margin: 20px 0 0 0;
+}
+
+.contact
+{
+    margin-left: 15%;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    display: inline-block;
+
+}
+
+.carte
+{
+    box-shadow: 0 1px 12px #000000;
+    border: none;
+    float: right;
+    margin-top: -60px;
+    margin-right: 15%;
+    display: inline-block;
+
 }
 
 .responsive-bar

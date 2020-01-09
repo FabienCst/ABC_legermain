@@ -4,6 +4,12 @@
  * @var \App\Model\Entity\Prestation[]|\Cake\Collection\CollectionInterface $prestations
  */
 ?>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('New Prestation'), ['action' => 'add']) ?></li>
+    </ul>
+</nav>
 <div class="prestations index large-9 medium-8 columns content">
     <h3><?= __('Prestations') ?></h3>
     <table cellpadding="0" cellspacing="0">
@@ -11,6 +17,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('idPrestation') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('titre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('image') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -19,6 +26,7 @@
             <tr>
                 <td><?= $this->Number->format($prestation->idPrestation) ?></td>
                 <td><?= h($prestation->titre) ?></td>
+                <td><?= h($prestation->image) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $prestation->idPrestation]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $prestation->idPrestation]) ?>

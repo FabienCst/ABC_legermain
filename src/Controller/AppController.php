@@ -77,7 +77,7 @@ class AppController extends Controller
         //$this->loadComponent('Security');
 
         $this->loadModel('Prestations');
-        $prestations = $this->Prestations->find('all', ['limit' => 3,'order' => 'Prestations.idPrestation ASC']);
+        $prestations = $this->Prestations->find('all', ['order' => 'Prestations.idPrestation ASC']);
         $this->set('prestations',$prestations);
     }
 
