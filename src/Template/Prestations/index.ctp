@@ -17,6 +17,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('idPrestation') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('titre') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('image') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -25,6 +26,7 @@
             <tr>
                 <td><?= $this->Number->format($prestation->idPrestation) ?></td>
                 <td><?= h($prestation->titre) ?></td>
+                <td><?= h($prestation->image) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $prestation->idPrestation]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $prestation->idPrestation]) ?>

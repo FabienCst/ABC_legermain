@@ -18,6 +18,7 @@
             echo $this->Form->control('titre');
             echo $this->Form->control('description');
             echo $this->Form->control('date', ['empty' => true]);
+            echo $this->Form->control('image');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  * @property string $titre
  * @property string $sous_titre
  * @property string $description
+ * @property string $image
  */
 class Prestation extends Entity
 {
@@ -26,5 +27,6 @@ class Prestation extends Entity
         'titre' => true,
         'sous_titre' => true,
         'description' => true,
+        'image' => true,
     ];
 }

@@ -65,6 +65,16 @@ nav ul li a
     transition: 0.5s;
 }
 
+.separation1
+{
+    display: none;
+}
+
+.separation2
+{
+    display: none;
+}
+
 nav ul li a:hover
 {
     color: #58B8B8;
@@ -90,6 +100,30 @@ section.content h1
     /*font-family: "Hatorri Hanzo";*/
 }
 
+nav.black .separation1
+{
+    display: block;
+    overflow: visible;
+    width: 3px;
+    height: 18px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: matrix(1,0,0,1,0,0);
+}
+
+
+nav.black .separation2
+{
+    display: block;
+    overflow: visible;
+    width: 3px;
+    height: 18px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: matrix(1,0,0,1,0,0);
+}
 
 
 /*section.content p1
@@ -103,14 +137,14 @@ section.content h1
 
 .presentation-blocs
 {
-    margin: 20px 12% 0 0;
+    margin: 20px 20% 0 0;
 }
 
 .presentation-blocs1\&3
 {
-    margin: 20px 0 0 15%;
+    margin: 20px 0 0 23%;
     padding-right: 50%;
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: #FFFFFF;
 }
 
@@ -118,7 +152,7 @@ section.content h1
 {
     margin: 20px 0 0 0;
     padding-left: 60%;
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: #FFFFFF;
     text-align: right;
 }
@@ -146,7 +180,7 @@ section.bande_labels
 section.bande-contact
 {
     background-color: #443226;
-    padding: 20px 0 300px 0;
+    padding: 200px 0 300px 0;
 
 }
 
@@ -159,7 +193,6 @@ section.bande-contact h1
 
 .contact
 {
-
     margin: 0 0 0 10%;
     color: #FFFFFF;
     font-size: 1.2em;
@@ -169,10 +202,57 @@ section.bande-contact h1
 
 .carte
 {
-   float: right;
-    margin-right: 30px;
+    box-shadow: 0 1px 12px #000000;
+    border: none;
+    float: right;
+    margin-right: 10%;
     display: inline-block;
+}
 
+section.footer
+{
+    background-color: #54362A;
+    padding: 120px 0 10px 0;
+    color: #FFFFFF;
+    font-size: 1em;
+}
+
+section.footer a
+{
+    text-decoration:none;
+    color: #FFFFFF;
+    font-size: 1em;
+}
+
+.sommaire-presta
+{
+    margin-left: 12%;
+    display: inline-block;
+    color: #FFFFFF;
+
+}
+
+.recrutement-devis-footer
+{
+    float: right;
+    margin: -20px 12% 0 0;
+    display: inline-block;
+}
+
+.icones-footer
+{
+    margin:  -5% 0 0 45%;
+
+}
+
+.logo-abc-footer
+{
+    margin:  -5% 0 0 37%;
+}
+
+.copyright-footer
+{
+    margin-top: 75px;
 }
 
 .responsive-bar
@@ -256,4 +336,6 @@ section.bande-contact h1
         line-height: 50px !important;
         text-transform: uppercase;
     }
+
+
 }

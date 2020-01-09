@@ -18,6 +18,7 @@
                 <th scope="col"><?= $this->Paginator->sort('idActualite') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('titre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('date') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('image') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -27,6 +28,7 @@
                 <td><?= $this->Number->format($actualite->idActualite) ?></td>
                 <td><?= h($actualite->titre) ?></td>
                 <td><?= h($actualite->date) ?></td>
+                <td><?= h($actualite->image) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $actualite->idActualite]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $actualite->idActualite]) ?>

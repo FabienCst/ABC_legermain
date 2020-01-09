@@ -15,6 +15,7 @@
     <fieldset>
         <legend><?= __('Add Offre') ?></legend>
         <?php
+            echo $this->Form->control('titre');
             echo $this->Form->control('type');
             echo $this->Form->control('description');
             echo $this->Form->control('exp_requise');

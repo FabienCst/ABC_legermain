@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  * @property string $titre
  * @property string|null $description
  * @property \Cake\I18n\FrozenDate|null $date
+ * @property string $image
  */
 class Actualite extends Entity
 {
@@ -26,5 +27,6 @@ class Actualite extends Entity
         'titre' => true,
         'description' => true,
         'date' => true,
+        'image' => true,
     ];
 }

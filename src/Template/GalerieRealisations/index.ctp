@@ -12,12 +12,13 @@
   <div class="grid-container">
 
 <?php foreach($realisations as $realisations):?>
+<a href="/details-realisation/index/<?php echo h($realisations->idRealisation); ?>">
     <article id="3685" class="location-listing">
-      <label class="location-title" ><?= $this->Html->link(__($realisations->titre), ['controller' => 'DetailsRealisation' , 'action' => 'index', $realisations->idRealisation]) ?></label>
+      <label class="location-title" > <?= $realisations->titre ?></label>
       <div class="location-image">
-        <a href="#"><img width="300" height="169" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/san-fransisco-768x432.jpg" ></a>
+        <img width="300" height="169" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/san-fransisco-768x432.jpg" >
       </div>
-    </article>
+    </article></a>
 <?php endforeach; ?>
 
   </div>

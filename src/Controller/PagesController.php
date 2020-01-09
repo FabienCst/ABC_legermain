@@ -41,8 +41,13 @@ class PagesController extends AppController
     {
         // Chargement du model "Prestations"
         $this->loadModel('Prestations');
-        $prestations = $this->Prestations->find('all', ['limit' => 3,'order' => 'Prestations.idPrestation ASC']);
+        $prestations = $this->Prestations->find('all', ['order' => 'Prestations.idPrestation ASC']);
         $this->set('prestations',$prestations);
+
+        // Chargement du model "Actualites"
+        $this->loadModel('Actualites');
+        $actualites = $this->Actualites->find('all', ['order' => 'Actualites.idActualite ASC']);
+        $this->set('actualites',$actualites);
 
         $count = count($path);
         if (!$count) {
