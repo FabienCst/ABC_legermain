@@ -48,24 +48,27 @@ class PrestationsController extends AppController
      */
     public function add()
     {
+        $prestation = $this->Prestations->newEntity();
         if ($this->request->is('post')) {
 
             $myname = $this->request->getData()['fichier']['name'];
             $mytmp = $this->request->getData()['fichier']['tmp_name'];
             $myext = substr(strrchr($myname,"."),1);
             $hasher = new DefaultPasswordHasher();
-            $mypath = "img/prestations/".$hasher->hash($myname).".".$myext;
+            //$mynameHash = $hasher->hash($myname);
+            $mypath = "img\prestations\\".$myname;
 
             if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)){
+            //if(copy($mytmp,WWW_ROOT.$mypath)){
 
                 // $prestation = $this->Prestations->patchEntity($prestation, $this->request->getData());
 
-                $prestation = $this->Prestations->newEntity();
+
 
                 $prestation->titre = $this->request->getData()['titre'];
                 $prestation->sous_titre = $this->request->getData()['sous_titre'];
                 $prestation->description = $this->request->getData()['description'];
-                $prestation->image = $mypath;
+                $prestation->image = $myname;
 
                 if ($this->Prestations->save($prestation)) {
                     $this->Flash->success(__('The prestation has been saved.'));

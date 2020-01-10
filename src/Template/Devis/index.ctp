@@ -20,7 +20,7 @@
             echo $this->Form->control('ville');
             echo $this->Form->control('description');
             echo $this->Form->control('type');
-            $this->Form->input('date', array('default'=>$date));
+            echo $this->Form->input('date', array('default'=>$date));
         ?>
     </fieldset>
 </section>

@@ -4,14 +4,9 @@
  * @var \App\Model\Entity\Prestation $prestation
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Realisations'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
+
 <div class="prestations form large-9 medium-8 columns content">
-    <?= $this->Form->create($prestation, ['type' => 'file']) ?>
+    <?= $this->Form->create($prestation, ['enctype' =>'multipart/form-data','type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Add Prestation') ?></legend>
         <?php

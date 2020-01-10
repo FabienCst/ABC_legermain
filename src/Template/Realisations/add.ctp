@@ -4,22 +4,15 @@
  * @var \App\Model\Entity\Realisation $realisation
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Realisations'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="realisations form large-9 medium-8 columns content">
-    <?= $this->Form->create($realisation) ?>
+<div class="form-style-8">
+    <?= $this->Form->create($realisation, ['enctype' =>'multipart/form-data','type' => 'file']) ?>
     <fieldset>
-        <legend><?= __('Add Realisation') ?></legend>
         <?php
             echo $this->Form->control('titre');
             echo $this->Form->control('description');
-            echo $this->Form->control('date', ['empty' => true]);
-            echo $this->Form->control('image');
-            echo $this->Form->control('idPrestation');
+            echo $this->Form->input('date', array('default'=>$date));
+            echo $this->Form->control('presta',['options' => $titre_prestations]);
+            echo $this->Form->file('fichier',['type' => 'file']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

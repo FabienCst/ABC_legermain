@@ -7,7 +7,7 @@
 <?= $this->Html->css('galerie_realisations.css') ?>
 
 <section class="sec1">
-        <img src="/<?= $prestation ?>" >
+        <img src="/img/prestations/<?= h($prestation) ?>" >
 </section>
 
 <div class="child-page-listing">
