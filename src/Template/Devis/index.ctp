@@ -11,15 +11,39 @@
 <section class="content">
     <?= $this->Form->create($projet) ?>
     <fieldset>
+        <div class="prenom">
         <?php
-            echo $this->Form->control('nom');
-            echo $this->Form->control('prenom');
-            echo $this->Form->control('mail');
-            echo $this->Form->control('adresse');
-            echo $this->Form->control('code_postal');
-            echo $this->Form->control('ville');
-            echo $this->Form->control('description');
-            echo $this->Form->control('type');
+            echo $this->Form->control('prenom'); ?>
+        </div>
+        <div class="nom">
+            <?php
+            echo $this->Form->control('nom'); ?>
+        </div>
+        <div>
+        <?php
+            echo $this->Form->control('mail');?>
+        </div>
+        <div>
+            <?php
+            echo $this->Form->control('adresse'); ?>
+        </div>
+        <div class="ville">
+            <?php
+            echo $this->Form->control('ville');?>
+        </div>
+        <div class="codepostal">
+            <?php
+            echo $this->Form->control('code_postal');?>
+        </div>
+        <div>
+            <?php
+            echo $this->Form->control('type');?>
+        </div>
+        <div>
+            <?php
+            echo $this->Form->control('description');?>
+        </div>
+        <?php
             $this->Form->input('date', array('default'=>$date));
         ?>
     </fieldset>
