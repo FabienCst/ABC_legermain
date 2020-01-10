@@ -9,44 +9,24 @@
 
 <section class="sec1"></section>
 <section class="content">
+
     <?= $this->Form->create($projet) ?>
+    <div class="form-style-8">
+        <h1>Demande de Devis</h1>
     <fieldset>
-        <div class="prenom">
         <?php
-            echo $this->Form->control('prenom'); ?>
-        </div>
-        <div class="nom">
-            <?php
-            echo $this->Form->control('nom'); ?>
-        </div>
-        <div>
-        <?php
-            echo $this->Form->control('mail');?>
-        </div>
-        <div>
-            <?php
-            echo $this->Form->control('adresse'); ?>
-        </div>
-        <div class="ville">
-            <?php
-            echo $this->Form->control('ville');?>
-        </div>
-        <div class="codepostal">
-            <?php
-            echo $this->Form->control('code_postal');?>
-        </div>
-        <div>
-            <?php
-            echo $this->Form->control('type');?>
-        </div>
-        <div>
-            <?php
-            echo $this->Form->control('description');?>
-        </div>
-        <?php
-            $this->Form->input('date', array('default'=>$date));
+            echo $this->Form->control('prenom ');
+            echo $this->Form->control('nom ');
+            echo $this->Form->control('mail ',['type' => 'email']);
+            echo $this->Form->control('adresse ');
+            echo $this->Form->control('ville ');
+            echo $this->Form->control('code_postal ');
+            echo $this->Form->control('type ');
+            echo $this->Form->control('description ');
         ?>
     </fieldset>
 </section>
-<?= $this->Form->button(__('Submit')) ?>
+<div class="btn-submit-devis">
+    <p><?= $this->Form->button(__('Submit')) ?></p>
+</div>
 <?= $this->Form->end() ?>
