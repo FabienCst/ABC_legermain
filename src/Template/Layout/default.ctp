@@ -80,36 +80,27 @@ $cakeDescription = 'ABC Legermain';
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
-    <footer>
-      <div class="footer-container">
-
-        <div class="logos-reseaux">
-          <a href="#"><?= $this->Html->image('facebook_blanc.svg') ?></a>
-          <a href="#"><?= $this->Html->image('instagram_blanc.svg') ?></a>
-        </div>
-
-        <div class="logo-lien-footer">
-
-          <ul>
-            <li><a href="#">Actualités</a></li>
-            <li><a href="#">Charpentes</a></li>
-            <li><a href="#">Couvertures</a></li>
-            <li><a href="#">Ouvrages Spécifiques</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-
-          <div class="logo-footer">
-            <?= $this->Html->image('abc-logo.png') ?>
-          </div>
-
-          <ul>
-            <li><?= $this->Html->link(__('Recrutement'), ['controller' => 'Recrutement' , 'action' => 'index']) ?></li>
-            <li><?= $this->Html->link(__('Demander un devis'), ['controller' => 'Devis' , 'action' => 'index']) ?></li>
-          </ul>
-
-        </div>
-
-      </div>
-    </footer>
+    <section class="footer">
+            <div class="icones-footer">
+                <p1><a href="https://www.instagram.com" ><?= $this->Html->image('instagram.svg', array('width'=>'60px','height'=>'60px')) ?></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/" ><?= $this->Html->image('facebook-circular-logo.svg', array('width'=>'60px','height'=>'60px')) ?></a></p1>
+            </div>
+            <div class="recrutement-devis-footer">
+                <p><?= $this->Html->link(('Recrutement'), ['controller' => 'Recrutement' , 'action' => 'index']) ?></p>
+                <p><?= $this->Html->link(('Demander un devis'), ['controller' => 'Devis' , 'action' => 'index']) ?></p>
+            </div>
+            <div class="sommaire-presta">
+                <p><a href="#" >Actualités</a></p>
+                <p><a href="#" >Couvertures</a></p>
+                <p><a href="#" >Charpentes</a></p>
+                <p><a href="#" >Ouvrages-spécifiques</a></p>
+                <p><a href="#" >Contact</a></p>
+            </div>
+            <div class="logo-abc-footer">
+                <p1><?= $this->Html->image('abc-logo.png') ?> </p1>
+            </div>
+            <div class="copyright-footer">
+                <p>© ABC Legermain, All rights reserved</p>
+            </div>
+        </section>
 </body>
 </html>

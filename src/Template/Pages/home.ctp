@@ -117,15 +117,27 @@ $cakeDescription = 'ABC Legermain | Accueil';
             <p> <?= $this->Html->image('map-placeholder.svg', array('width'=>'20px','height'=>'20px')) ?>&nbsp;&nbsp; Zone Artisanale 72140 Rouez en Champagne</p>
             <p> <?= $this->Html->image('enveloppe.svg', array('width'=>'20px','height'=>'20px')) ?> &nbsp;&nbsp;infos@legermain.com</p>
             <p> <?= $this->Html->image('call-answer.svg', array('width'=>'20px','height'=>'20px')) ?> &nbsp;&nbsp;02 47 36 70 34 </p>
-            <p2>Suivez-nous &nbsp;&nbsp;&nbsp;&nbsp;<?= $this->Html->image('facebook-circular-logo.svg', array('width'=>'40px','height'=>'40px')) ?> &nbsp;&nbsp;&nbsp;<?= $this->Html->image('instagram.svg', array('width'=>'40px','height'=>'40px')) ?></p2>
+            <p2>Suivez-nous &nbsp;&nbsp;&nbsp;&nbsp;<?= $this->Html->image('facebook-circular-logo.svg', array('width'=>'30px','height'=>'30px')) ?> &nbsp;&nbsp;&nbsp;<?= $this->Html->image('instagram.svg', array('width'=>'30px','height'=>'30px')) ?></p2>
         </div>
         <div class="carte">
             <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1G3PQ94Qeh8OPmpq3pzgw-IR9AE_MBLCq" width="640" height="480"></iframe>
         </div>
     </section>
-    <section class="footer">
+
+<div class="btn_devis">
+    <a href="/devis/index";">
+        <div class="docs">
+            <?= $this->Html->image('docs.svg') ?>
+        </div>
+        <div>
+            <p>Demander un devis</p>
+        </div>
+    <a>
+</div>
+
+<section class="footer">
         <div class="icones-footer">
-            <p1><a href="https://www.instagram.com" ><?= $this->Html->image('instagram.svg', array('width'=>'45px','height'=>'45px')) ?></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/" ><?= $this->Html->image('facebook-circular-logo.svg', array('width'=>'45px','height'=>'45px')) ?></a></p1>
+            <p1><a href="https://www.instagram.com" ><?= $this->Html->image('instagram.svg', array('width'=>'60px','height'=>'60px')) ?></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/" ><?= $this->Html->image('facebook-circular-logo.svg', array('width'=>'60px','height'=>'60px')) ?></a></p1>
         </div>
         <div class="recrutement-devis-footer">
             <p><?= $this->Html->link(('Recrutement'), ['controller' => 'Recrutement' , 'action' => 'index']) ?></p>
@@ -145,6 +157,5 @@ $cakeDescription = 'ABC Legermain | Accueil';
             <p>© ABC Legermain, All rights reserved</p>
         </div>
     </section>
-
 </body>
 </html>
