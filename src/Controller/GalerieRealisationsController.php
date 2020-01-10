@@ -13,7 +13,17 @@ class GalerieRealisationsController extends AppController
             'conditions' => array('Realisations.idPrestation' => $idPrestation)
         ));
 
+        $this->loadModel('Prestations');
+        $prestations = $this->Prestations->find('all', array(
+            'conditions' => array('Prestations.idPrestation' => $idPrestation),
+        ));
+
+        foreach ($prestations as $presta) {
+            $prestation = $presta->image;
+        }
+
         $this->set('realisations', $realisations);
+        $this->set('prestation',$prestation);
     }
 
 }

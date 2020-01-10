@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use Cake\Auth\DefaultPasswordHasher;
 use App\Controller\AppController;
 
 /**
@@ -47,28 +48,37 @@ class PrestationsController extends AppController
      */
     public function add()
     {
-        $prestation = $this->Prestations->newEntity();
         if ($this->request->is('post')) {
 
-            $myname = $this->request->getData()['file']['name'];
-            $mytmp = $this->request->getData()['file']['tmp_name'];
+            $myname = $this->request->getData()['fichier']['name'];
+            $mytmp = $this->request->getData()['fichier']['tmp_name'];
             $myext = substr(strrchr($myname,"."),1);
-            $mypath = "upload/".security::hash($myname).".".$myext;
-            $file= $this->Files->newEntity();
-            $file->name=$myname;
-            $file->path=$mypath;
+            $hasher = new DefaultPasswordHasher();
+            $mypath = "img/prestations/".$hasher->hash($myname).".".$myext;
+
             if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)){
-                $this->Files->save($file);
-                return $this->redirect(['action'=>"index"]);
-            }
 
-            $prestation = $this->Prestations->patchEntity($prestation, $this->request->getData());
-            if ($this->Prestations->save($prestation)) {
-                $this->Flash->success(__('The prestation has been saved.'));
+                // $prestation = $this->Prestations->patchEntity($prestation, $this->request->getData());
 
-                return $this->redirect(['action' => 'index']);
+                $prestation = $this->Prestations->newEntity();
+
+                $prestation->titre = $this->request->getData()['titre'];
+                $prestation->sous_titre = $this->request->getData()['sous_titre'];
+                $prestation->description = $this->request->getData()['description'];
+                $prestation->image = $mypath;
+
+                if ($this->Prestations->save($prestation)) {
+                    $this->Flash->success(__('The prestation has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The prestation could not be saved. Please, try again.'));
+
             }
-            $this->Flash->error(__('The prestation could not be saved. Please, try again.'));
+            else {
+                echo implode( ", ", $this->request->data['fichier']);
+                echo $this->request->data['fichier']['tmp_name'];
+            }
         }
         $this->set(compact('prestation'));
     }
