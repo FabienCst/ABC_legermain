@@ -69,10 +69,7 @@ class RealisationsController extends AppController
             $myext = substr(strrchr($myname,"."),1);
             $mypath = "img\\realisations\principale\\".$myname;
 
-            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)){
-                //if(copy($mytmp,WWW_ROOT.$mypath)){
-
-                // $prestation = $this->Prestations->patchEntity($prestation, $this->request->getData());
+            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)) {
 
                 $idPrestations = $this->Prestations->find('all', array(
                     'conditions' => array('Prestations.titre' => $titre_prestations[$this->request->getData()['presta']])

@@ -8,7 +8,7 @@
 
 
 <section class="sec1"></section>
-<section class="content">
+<section class="form-style-8">
     <?= $this->Form->create($projet) ?>
     <fieldset>
         <?php
@@ -19,8 +19,7 @@
             echo $this->Form->control('code_postal');
             echo $this->Form->control('ville');
             echo $this->Form->control('description');
-            echo $this->Form->control('type');
-            echo $this->Form->input('date', array('default'=>$date));
+            echo $this->Form->control('type',['options' => $titre_prestations]);
         ?>
     </fieldset>
 </section>
