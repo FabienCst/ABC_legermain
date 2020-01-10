@@ -12,6 +12,35 @@ section.content
     margin: 100px 25% 100px 25%;
     border: 1px solid #D8D4D4;
     padding: 50px 100px 50px 100px;
+    color: #855D43;
+}
+
+section.content div
+{
+    margin-top:20px ;
+}
+.nom
+{
+    display: inline-block;
+    margin-left: 100px;
+}
+
+.prenom
+{
+    display: inline-block;
+}
+
+.ville
+{
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.codepostal
+{
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 50px;
 }
 
 div.btn_devis

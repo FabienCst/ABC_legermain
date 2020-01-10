@@ -12,7 +12,6 @@ section.sec1
 section.content
 {
     border: 1px solid #D8D4D4;
-    /*margin: 100px 25% 100px 25%;*/
     margin-right:25% ;
     margin-left: 25%;
     margin-top: 5%;
@@ -27,8 +26,9 @@ div.resume {
 
 h1
 {
+    padding: 15px 30px 15px 30px;
     font-family: 'Kulim Park', sans-serif;
-    color: black;
+    color: #855D43;
     font-size: 2em;
     text-align: center;
 }

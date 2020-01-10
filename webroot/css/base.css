@@ -86,69 +86,62 @@ nav ul li a:hover
     display: none;
 }
 
-footer
+section.footer
 {
-    width: 100%;
-    height: 500px;
-    background: #54362A;
-}
-
-.footer-container
-{
-    padding: 30px 10% 30px 10%;
-}
-
-.logos-reseaux
-{
-    margin-left: auto;
-    margin-right: auto;
-    width: 195px;
-    padding: 0;
-}
-
-.logos-reseaux img
-{
-    padding: 0 20px 0 20px;
-    width: 55px;
-    height: 55px;
-}
-
-.logo-lien-footer
-{
-    display: flex;
-}
-
-.logo-lien-footer ul
-{
-    float: right;
-}
-
-.logo-lien-footer ul li
-{
-    list-style: none;
-}
-
-.logo-lien-footer ul li a
-{
-    line-height: 40px;
-    color: #fff;
+    box-shadow: 0 1px 12px #000000;
+    background-color: #54362A;
+    padding: 120px 0 10px 0;
+    color: #FFFFFF;
+    font-size: 1.1em;
     font-family: 'Kulim Park', sans-serif;
-    text-decoration: none;
-    transition: 0.5s;
-    font-size: 1.3em;
 }
 
-.logo-lien-footer ul li a:hover
+section.footer a
+{
+    text-decoration:none;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    font-family: 'Kulim Park', sans-serif;
+}
+
+section.footer a:hover
 {
     color: #58B8B8;
+    text-decoration:none;
+    font-size: 1.1em;
+    font-family: 'Kulim Park', sans-serif;
 }
 
-.logo-footer
+.sommaire-presta
 {
-    margin-top: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
+    margin-left: 12%;
+    display: inline-block;
+    color: #FFFFFF;
+
+}
+
+.recrutement-devis-footer
+{
+    float: right;
+    margin: -20px 12% 0 0;
+    display: inline-block;
+}
+
+.icones-footer
+{
+    margin:  -5% 0 0 45%;
+
+}
+
+.logo-abc-footer
+{
+    margin:  -5% 0 0 39%;
+}
+
+.copyright-footer
+{
+    margin-top: 125px;
+    margin-left: 50px;
 }
 
 @media(max-width: 768px) {

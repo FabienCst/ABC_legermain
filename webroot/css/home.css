@@ -132,7 +132,6 @@ nav.black .separation2
     padding-right: 75%;
     font-size: 1.2em;
     color: #FFFFFF;
-
 }*/
 
 .presentation-blocs
@@ -166,21 +165,21 @@ section.bande_labels
 {
     background-color: #2A5858;
     padding: 30px;
+    box-shadow: 0 1px 12px #303030 inset;
 }
 
 .phrase-accroche
 {
-
     padding:  0 20% 0 23%;
     font-size: 2em;
     color: #FFFFFF;
-
 }
 
 section.bande-contact
 {
     background-color: #443226;
     padding: 200px 0 300px 0;
+    box-shadow: 0 1px 12px #000000;
 
 }
 
@@ -209,19 +208,75 @@ section.bande-contact h1
     display: inline-block;
 }
 
+div.docs img
+{
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-bottom: -50px;
+}
+
+div.btn_devis
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    box-shadow: 0 1px 12px #000000;
+    border-radius: 100px;
+    padding: 10px 30px 10px 30px;
+    background: #2A5858;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
+div.btn_devis p
+{
+    text-decoration: none;
+    color: white;
+    font-size: 1.6em;
+    margin-left: 120px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+a:hover div.btn_devis
+{
+    background: #316868;
+    text-decoration: none;
+}
+
 section.footer
 {
+    box-shadow: 0 1px 12px #000000;
     background-color: #54362A;
     padding: 120px 0 10px 0;
     color: #FFFFFF;
-    font-size: 1em;
+    font-size: 1.1em;
+    font-family: 'Kulim Park', sans-serif;
 }
 
 section.footer a
 {
     text-decoration:none;
     color: #FFFFFF;
-    font-size: 1em;
+    font-size: 1.1em;
+    font-family: 'Kulim Park', sans-serif;
+}
+
+section.footer a:hover
+{
+    color: #58B8B8;
+    text-decoration:none;
+    font-size: 1.1em;
+    font-family: 'Kulim Park', sans-serif;
 }
 
 .sommaire-presta
@@ -247,12 +302,13 @@ section.footer a
 
 .logo-abc-footer
 {
-    margin:  -5% 0 0 37%;
+    margin:  -5% 0 0 39%;
 }
 
 .copyright-footer
 {
-    margin-top: 75px;
+    margin-top: 125px;
+    margin-left: 50px;
 }
 
 .responsive-bar
