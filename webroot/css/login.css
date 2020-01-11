@@ -99,6 +99,7 @@ button:hover
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
+    color: #FFFFFF;
 }
 .form-style-8 textarea{
     resize:none;
