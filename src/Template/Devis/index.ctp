@@ -25,6 +25,7 @@
             echo $this->Form->control('description');
         ?>
     </fieldset>
+    </div>
 </section>
 <div class="btn-submit-devis">
     <p><?= $this->Form->button(__('Envoyer la demande de devis')) ?></p>

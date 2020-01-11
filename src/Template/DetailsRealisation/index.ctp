@@ -30,12 +30,11 @@
 
 <div class="btn_devis">
     <a href="/devis/index";">
-    <div class="docs">
-        <?= $this->Html->image('docs.svg') ?>
-    </div>
-    <div>
-        <p>Demander un devis</p>
-    </div>
+        <div class="docs">
+            <?= $this->Html->image('docs.svg') ?>
+        </div>
+        <div>
+            <p>Demander un devis</p>
+        </div>
     <a>
 </div>
-
