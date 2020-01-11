@@ -16,7 +16,6 @@ $cakeDescription = 'ABC Legermain | Login';
 <body>
 <section class="sec1">
     <div class="content">
-
 <div class="form-style-8">
 <h1>ESPACE ADMIN</h1>
 

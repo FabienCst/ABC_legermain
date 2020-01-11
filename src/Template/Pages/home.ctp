@@ -100,7 +100,7 @@ $cakeDescription = 'ABC Legermain | Accueil';
     <section class="bande_labels">
         <div class="labels">
             <p>
-                <?= $this->Html->image('labels.svg') ?>
+                <?= $this->Html->image('labels.png') ?>
             </p>
         </div>
     </section>
@@ -124,16 +124,16 @@ $cakeDescription = 'ABC Legermain | Accueil';
         </div>
     </section>
     <section class="back_btn">
-    <div class="btn_devis">
-        <a href="/devis/index";">
+        <div class="btn_devis">
+            <a href="/devis/index";">
             <div class="docs">
                 <?= $this->Html->image('docs.svg') ?>
             </div>
             <div>
                 <p>Demander un devis</p>
             </div>
-        <a>
-    </div>
+            <a>
+        </div>
     </section>
 <section class="footer">
         <div class="icones-footer">

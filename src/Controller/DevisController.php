@@ -44,13 +44,4 @@ class DevisController extends AppController
         $this->set(compact('projets'));
     }
 
-
-    public function isAuthorized($administrateur) {
-
-        $action = $this->request->getParam('action');
-        $pass1 = ($administrateur['actif'] === 1);
-        $pass2 = in_array($action, ['login', 'logout']);
-
-        return $pass1 || $pass2;
-    }
 }
