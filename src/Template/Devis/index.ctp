@@ -4,30 +4,26 @@
  * @var \App\Model\Entity\Projet[]|\Cake\Collection\CollectionInterface $projets
  */
 ?>
-<?= $this->Html->css('devis.css') ?>SS
+<?= $this->Html->css('devis.css') ?>
 
 
 <section class="sec1"></section>
-<section class="content">
-
+<section class="form-style-8">
     <?= $this->Form->create($projet) ?>
-    <div class="form-style-8">
-        <h1>Demande de Devis</h1>
     <fieldset>
         <?php
-            echo $this->Form->control('prenom');
             echo $this->Form->control('nom');
-            echo $this->Form->control('mail',['type' => 'email']);
+            echo $this->Form->control('prenom');
+            echo $this->Form->control('mail');
             echo $this->Form->control('adresse');
-            echo $this->Form->control('ville');
             echo $this->Form->control('code_postal');
-            echo $this->Form->control('type');
+            echo $this->Form->control('ville');
             echo $this->Form->control('description');
+            echo $this->Form->control('type',['options' => $titre_prestations]);
         ?>
     </fieldset>
-    </div>
 </section>
 <div class="btn-submit-devis">
-    <p><?= $this->Form->button(__('Envoyer la demande de devis')) ?></p>
+    <?= $this->Form->button(__('Demander un Devis')) ?>
 </div>
 <?= $this->Form->end() ?>

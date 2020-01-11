@@ -1,26 +1,31 @@
 <?php
-
 $this->layout = false;
-$cakeDescription = 'ABC Legermain | login';
-
+$cakeDescription = 'ABC Legermain | Login';
 ?>
 <!DOCTYPE html>
 <html>
-<?= $this->Html->charset() ?>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>
-    <?= $cakeDescription ?>
-</title>
-<?= $this->Html->css('login.css') ?>
+<head>
+    <?= $this->Html->charset() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <?= $cakeDescription ?>:
+        <?= $this->fetch('title') ?>
+    </title>
+    <?= $this->Html->css('login.css') ?>
+</head>
+
 <section class="sec1">
-<section class="content">
-<h1>Login</h1>
+    <div class="content">
+<div class="form-style-8">
+<h1>ESPACE ADMIN</h1>
 
 <?= $this->Form->create() ?>
-<?= $this->Form->control('username', array('label' => "Identifiant")) ?>
-<?= $this->Form->control('password', array('label' => "Mot de passe")) ?>
-<?= $this->Form->button('Connexion') ?>
+<?= $this->Form->control('identifiant', array('label' => "Identifiant")) ?>
+<?= $this->Form->control('mot_de_passe', array('label' => "Mot de passe", 'type' => 'password')) ?>
+    <div class="btn-connex-login">
+        <?= $this->Form->button(__('Se Connecter')) ?>
+    </div>
 <?= $this->Form->end() ?>
-
-</section>
+</div>
+    </div>
 </section>

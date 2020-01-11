@@ -78,10 +78,6 @@ class PrestationsController extends AppController
                 $this->Flash->error(__('The prestation could not be saved. Please, try again.'));
 
             }
-            else {
-                echo implode( ", ", $this->request->data['fichier']);
-                echo $this->request->data['fichier']['tmp_name'];
-            }
         }
         $this->set(compact('prestation'));
     }
@@ -128,5 +124,14 @@ class PrestationsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function isAuthorized($administrateur) {
+
+        $action = $this->request->getParam('action');
+        $pass1 = ($administrateur['actif'] === 1);
+        $pass2 = in_array($action, ['login', 'logout']);
+
+        return $pass1 || $pass2;
     }
 }

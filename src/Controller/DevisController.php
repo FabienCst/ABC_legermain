@@ -7,10 +7,31 @@ class DevisController extends AppController
 
     public function index()
     {
+        $this->loadModel('Prestations');
+        $prestations = $this->Prestations->find('all', ['order' => 'Prestations.idPrestation ASC']);
+        $titre_prestations = array();
+        foreach($prestations as $prestation) {
+            array_push($titre_prestations, $prestation->titre);
+        }
+        $this->set('titre_prestations',$titre_prestations);
+        $date = date('Y-m-d');
+        $this->set('date',$date);
+
         $this->loadModel('Projets');
         $projet = $this->Projets->newEntity();
         if ($this->request->is('post')) {
-            $projet = $this->Projets->patchEntity($projet, $this->request->getData());
+            //$projet = $this->Projets->patchEntity($projet, $this->request->getData());
+
+            $projet->nom = $this->request->getData()['nom'];
+            $projet->prenom = $this->request->getData()['prenom'];
+            $projet->mail = $this->request->getData()['mail'];
+            $projet->adresse = $this->request->getData()['adresse'];
+            $projet->code_postal = $this->request->getData()['code_postal'];
+            $projet->ville = $this->request->getData()['ville'];
+            $projet->description = $this->request->getData()['description'];
+            $projet->type = $titre_prestations[$this->request->getData()['type']];
+            $projet->date = $date;
+
             if ($this->Projets->save($projet)) {
                 $this->Flash->success(__('Votre demande de devis a bien été envoyé.'));
 
@@ -20,9 +41,16 @@ class DevisController extends AppController
         }
         $this->set('projet',$projet);
 
-        $date = date('Y-m-d');
-        $this->set('date',$date);
-
         $this->set(compact('projets'));
+    }
+
+
+    public function isAuthorized($administrateur) {
+
+        $action = $this->request->getParam('action');
+        $pass1 = ($administrateur['actif'] === 1);
+        $pass2 = in_array($action, ['login', 'logout']);
+
+        return $pass1 || $pass2;
     }
 }

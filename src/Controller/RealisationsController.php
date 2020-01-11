@@ -69,10 +69,7 @@ class RealisationsController extends AppController
             $myext = substr(strrchr($myname,"."),1);
             $mypath = "img\\realisations\principale\\".$myname;
 
-            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)){
-                //if(copy($mytmp,WWW_ROOT.$mypath)){
-
-                // $prestation = $this->Prestations->patchEntity($prestation, $this->request->getData());
+            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)) {
 
                 $idPrestations = $this->Prestations->find('all', array(
                     'conditions' => array('Prestations.titre' => $titre_prestations[$this->request->getData()['presta']])
@@ -83,7 +80,7 @@ class RealisationsController extends AppController
                 }
 
                 $realisation->titre = $this->request->getData()['titre'];
-                $realisation->date = $this->request->getData()['date'];
+                $realisation->date = $date;
                 $realisation->description = $this->request->getData()['description'];
                 $realisation->image = $myname;
 
@@ -150,5 +147,14 @@ class RealisationsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function isAuthorized($administrateur) {
+
+        $action = $this->request->getParam('action');
+        $pass1 = ($administrateur['actif'] === 1);
+        $pass2 = in_array($action, ['login', 'logout']);
+
+        return $pass1 || $pass2;
     }
 }

@@ -15,7 +15,7 @@ class AdministrateursController extends AppController
 
     public function initialize() {
         parent::initialize();
-     /*   $this->Auth->allow(['logout']);*/
+        $this->Auth->allow(['logout']);
     }
 
     /**
@@ -36,6 +36,7 @@ class AdministrateursController extends AppController
      **/
     public function login() {
         if ($this->request->is('post')) {
+
             $administrateur = $this->Auth->identify();
             if ($administrateur) {
                 $this->Auth->setUser($administrateur);

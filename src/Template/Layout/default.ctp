@@ -90,9 +90,9 @@ $cakeDescription = 'ABC Legermain';
             </div>
             <div class="sommaire-presta">
                 <p><a href="#" >Actualités</a></p>
-                <p><a href="#" >Couvertures</a></p>
-                <p><a href="#" >Charpentes</a></p>
-                <p><a href="#" >Ouvrages-spécifiques</a></p>
+                <?php foreach($prestations as $prestation):?>
+                    <p><?= $this->Html->link(__($prestation->titre), ['controller' => 'GalerieRealisations' , 'action' => 'index', $prestation->idPrestation]) ?></p>
+                <?php endforeach; ?>
                 <p><a href="#" >Contact</a></p>
             </div>
             <div class="logo-abc-footer">

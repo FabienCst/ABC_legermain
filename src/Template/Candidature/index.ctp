@@ -8,18 +8,16 @@
 
 <section class="sec1"></section>
 
-<section class="content">
-    <?= $this->Form->create($postulant) ?>
+<section class="form-style-8">
+    <?= $this->Form->create($postulant, ['enctype' =>'multipart/form-data','type' => 'file']) ?>
     <fieldset>
         <?php
             echo $this->Form->control('nom');
             echo $this->Form->control('prenom');
             echo $this->Form->control('mail');
             echo $this->Form->control('telephone');
-            echo $this->Form->input('date', array('default'=>$date));
-            echo $this->Form->control('cv');
-            echo $this->Form->control('lettre_motivation');
-            echo $this->Form->control('idOffre', ['default' => $idOffre]);
+            echo $this->Form->file('cv',['type' => 'file']);
+            echo $this->Form->file('lettre_motivation',['type' => 'file']);
         ?>
     </fieldset>
 </section>
