@@ -13,9 +13,10 @@ $cakeDescription = 'ABC Legermain | Login';
     </title>
     <?= $this->Html->css('login.css') ?>
 </head>
-
+<body>
 <section class="sec1">
     <div class="content">
+
 <div class="form-style-8">
 <h1>ESPACE ADMIN</h1>
 
@@ -29,3 +30,4 @@ $cakeDescription = 'ABC Legermain | Login';
 </div>
     </div>
 </section>
+</body>
