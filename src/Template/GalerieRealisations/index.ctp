@@ -18,7 +18,7 @@
     <article id="3685" class="location-listing">
       <label class="location-title" > <?= $realisations->titre ?></label>
       <div class="location-image">
-        <img width="300" height="169" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/san-fransisco-768x432.jpg" >
+        <img width="300" height="169" src="/img/realisations/principale/<?php echo h($realisations->image); ?>" >
       </div>
     </article></a>
 <?php endforeach; ?>

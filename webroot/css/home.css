@@ -212,6 +212,9 @@ div.docs img
 {
     width: 45px;
     height: 45px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-bottom: -50px;
 }
 
 div.btn_devis
@@ -220,7 +223,6 @@ div.btn_devis
     grid-template-columns: auto auto;
     box-shadow: 0 1px 12px #000000;
     border-radius: 100px;
-    text-align: center;
     padding: 10px 30px 10px 30px;
     background: #2A5858;
     margin-top: 100px;
@@ -234,7 +236,10 @@ div.btn_devis p
 {
     text-decoration: none;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.6em;
+    margin-left: 120px;
+    margin-top: 15px;
+    display: inline-block;
 }
 
 a
@@ -291,7 +296,7 @@ section.footer a:hover
 
 .icones-footer
 {
-    margin:  -5% 0 0 45%;
+    margin:  -5% 0 0 44%;
 
 }
 

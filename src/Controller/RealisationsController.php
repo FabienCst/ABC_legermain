@@ -80,7 +80,7 @@ class RealisationsController extends AppController
                 }
 
                 $realisation->titre = $this->request->getData()['titre'];
-                $realisation->date = $this->request->getData()['date'];
+                $realisation->date = $date;
                 $realisation->description = $this->request->getData()['description'];
                 $realisation->image = $myname;
 
@@ -147,5 +147,14 @@ class RealisationsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function isAuthorized($administrateur) {
+
+        $action = $this->request->getParam('action');
+        $pass1 = ($administrateur['actif'] === 1);
+        $pass2 = in_array($action, ['login', 'logout']);
+
+        return $pass1 || $pass2;
     }
 }

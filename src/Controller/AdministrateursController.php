@@ -36,6 +36,7 @@ class AdministrateursController extends AppController
      **/
     public function login() {
         if ($this->request->is('post')) {
+
             $administrateur = $this->Auth->identify();
             if ($administrateur) {
                 $this->Auth->setUser($administrateur);

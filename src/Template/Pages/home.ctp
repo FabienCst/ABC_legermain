@@ -123,18 +123,18 @@ $cakeDescription = 'ABC Legermain | Accueil';
             <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1G3PQ94Qeh8OPmpq3pzgw-IR9AE_MBLCq" width="640" height="480"></iframe>
         </div>
     </section>
-
-<div class="btn_devis">
-    <a href="/devis/index";">
-        <div class="docs">
-            <?= $this->Html->image('docs.svg') ?>
-        </div>
-        <div>
-            <p>Demander un devis</p>
-        </div>
-    <a>
-</div>
-
+    <section class="back_btn">
+    <div class="btn_devis">
+        <a href="/devis/index";">
+            <div class="docs">
+                <?= $this->Html->image('docs.svg') ?>
+            </div>
+            <div>
+                <p>Demander un devis</p>
+            </div>
+        <a>
+    </div>
+    </section>
 <section class="footer">
         <div class="icones-footer">
             <p1><a href="https://www.instagram.com" ><?= $this->Html->image('instagram.svg', array('width'=>'45px','height'=>'45px')) ?></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/" ><?= $this->Html->image('facebook-circular-logo.svg', array('width'=>'45px','height'=>'45px')) ?></a></p1>
@@ -145,9 +145,9 @@ $cakeDescription = 'ABC Legermain | Accueil';
         </div>
         <div class="sommaire-presta">
             <p><a href="#" >Actualités</a></p>
-            <p><a href="#" >Couvertures</a></p>
-            <p><a href="#" >Charpentes</a></p>
-            <p><a href="#" >Ouvrages-spécifiques</a></p>
+            <?php foreach($prestations as $prestation):?>
+                		<p><?= $this->Html->link(__($prestation->titre), ['controller' => 'GalerieRealisations' , 'action' => 'index', $prestation->idPrestation]) ?></p>
+             <?php endforeach; ?>
             <p><a href="#" >Contact</a></p>
         </div>
         <div class="logo-abc-footer">

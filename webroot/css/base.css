@@ -129,13 +129,13 @@ section.footer a:hover
 
 .icones-footer
 {
-    margin:  -5% 0 0 45%;
+    margin:  -5% 0 0 44%;
 
 }
 
 .logo-abc-footer
 {
-    margin:  -5% 0 0 39%;
+    margin:  -5% 0 0 37.5%;
 }
 
 .copyright-footer
@@ -143,7 +143,6 @@ section.footer a:hover
     margin-top: 125px;
     margin-left: 50px;
 }
-
 
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
@@ -154,18 +153,10 @@ section.footer a:hover
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
-
 }
 
-.form-style-8 h2{
-    background: #4D4D4D;
-    text-transform: uppercase;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #797979;
-    font-size: 18px;
-    font-weight: 100;
-    padding: 20px;
-    margin: -30px -30px 30px -30px;
+.form-style-8 h1{
+    text-align: center;
 }
 .form-style-8 input[type="text"],
 .form-style-8 input[type="date"],
@@ -196,7 +187,6 @@ section.footer a:hover
 .form-style-8 textarea{
     resize:none;
     overflow: hidden;
-    height: 100px;
 }
 .form-style-8 input[type="button"],
 .form-style-8 input[type="submit"]{
@@ -219,7 +209,6 @@ section.footer a:hover
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
     background-color:#34CACA;
 }
-
 
 @media(max-width: 768px) {
 

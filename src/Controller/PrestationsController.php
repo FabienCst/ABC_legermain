@@ -78,10 +78,6 @@ class PrestationsController extends AppController
                 $this->Flash->error(__('The prestation could not be saved. Please, try again.'));
 
             }
-            else {
-                echo implode( ", ", $this->request->data['fichier']);
-                echo $this->request->data['fichier']['tmp_name'];
-            }
         }
         $this->set(compact('prestation'));
     }
