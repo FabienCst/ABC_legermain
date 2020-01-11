@@ -49,7 +49,8 @@ class AdministrateursController extends AppController
 
     public function logout() {
         $this->Flash->success('Vous avez été déconnecté.');
-        return $this->redirect($this->Auth->logout());
+        $this->Auth->logout();
+        return $this->redirect(['controller' => 'Pages','action' => 'display']);
     }
 
     /**

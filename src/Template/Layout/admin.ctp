@@ -55,25 +55,26 @@ $cakeDescription = 'ABC Legermain';
         <div class="logo">
         	<?= $this->Html->image('abc-logo.png') ?>
             <ul>
-                <li><?= $this->Html->link(__('Accueil'), ['controller' => 'Pages' , 'action' => 'display']) ?></li>
+                <li><a>Messagerie</a>
+                    <ul>
+                        <li><?= $this->Html->link(__('Demandes de devis'), ['controller' => 'Messagerie' , 'action' => 'devis']) ?></li>
+                        <li><?= $this->Html->link(__('Candidatures'), ['controller' => 'Messagerie' , 'action' => 'candidatures']) ?></li>
+                    </ul>
+                </li>
+                <li><?= $this->Html->link(__('Réalisations'), ['controller' => 'Réalisations' , 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Actualités'), ['controller' => 'Actualités' , 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Prestations'), ['controller' => 'Prestations' , 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Recrutement'), ['controller' => 'Offres' , 'action' => 'index']) ?></li>
                 <li>
                     <svg class="separation1" viewBox="0 0 3 17.528">
                         <path fill="rgba(0,0,0,0)" stroke="rgba(255,255,255,1)" stroke-width="3px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="separation1" d="M 0 0 L 0 17.527587890625">
                         </path>
                     </svg>
                 </li>
-                <?php foreach($prestations as $prestation):?>
-                <li><?= $this->Html->link(__($prestation->titre), ['controller' => 'GalerieRealisations' , 'action' => 'index', $prestation->idPrestation]) ?></li>
-                <?php endforeach; ?>
-                <li>
-                    <svg class="separation2" viewBox="0 0 3 17.528">
-                        <path fill="rgba(0,0,0,0)" stroke="rgba(255,255,255,1)" stroke-width="3px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="separation2" d="M 0 0 L 0 17.527587890625">
-                        </path>
-                    </svg>
-                </li>
-                <li><?= $this->Html->link(__('Demander un devis'), ['controller' => 'Devis' , 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Se deconnecter'), ['controller' => 'Administrateurs' , 'action' => 'logout']) ?></li>
             </ul>
         </div>
     </nav>
+    <?= $this->fetch('content') ?>
 </body>
 </html>

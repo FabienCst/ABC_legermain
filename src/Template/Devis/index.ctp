@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Projet[]|\Cake\Collection\CollectionInterface $projets
  */
 ?>
-<?= $this->Html->css('devis.css') ?>SS
+<?= $this->Html->css('devis.css') ?>
 
 
 <section class="sec1"></section>
@@ -23,5 +23,7 @@
         ?>
     </fieldset>
 </section>
-<?= $this->Form->button(__('Submit')) ?>
+<div class="btn-submit-devis">
+    <?= $this->Form->button(__('Demander un Devis')) ?>
+</div>
 <?= $this->Form->end() ?>

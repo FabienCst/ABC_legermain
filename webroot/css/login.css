@@ -1,99 +1,74 @@
-section.sec1
+body
+{
+    margin: 0;
+    margin: 0;
+}
+
+.sec1
 {
     margin-top: -30vh;
     width: 100%;
-    height: 100vh;
-    background: url("../img/fond-pro.jpg");
+    height: 130vh;
+    background: url("../img/fond-accueil.png");
     background-size: cover;
 }
 
-section.content
+.content
 {
-    margin: 100px 25% 100px 25%;
-    border: 1px solid #D8D4D4;
-    padding: 50px 100px 50px 100px;
-    color: #855D43;
+    padding-top: 25%;
 }
 
-/*
-div.btn_devis
+.content h1
 {
-    display: grid;
-    grid-template-columns: auto;
-    box-shadow: 0 1px 12px #000000;
-    border-radius: 100px;
     text-align: center;
-    padding: 10px 30px 10px 30px;
-    background: #2A5858;
-    width: auto;
-    justify-self: center;
+    font-size: 2em;
+    /*    font-family: "Hattori_Hanzo", sans-serif;*/
 }
-div.btn_devis p
-{
-    text-decoration: none;
-    color: white;
-    font-size: 1.5em;
-}
-a
-{
-    text-decoration: none;
-}
-.btns
-{
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-a:hover div.btn_devis
-{
-    background: #316868;
-    text-decoration: none;
-}
-*/
+
 button
 {
     display: grid;
     grid-template-columns: auto;
-    box-shadow: 0 1px 12px #000000;
     border-radius: 100px;
-    padding: 5px 10px 5px 10px;
+    padding: 15px 25px 15px 25px;
     text-align: center;
-    background: #2A5858;
+    background: #8BC2C2;
+    box-shadow: 0 1px 12px #000000;
     border: none;
     color: white;
     font-size: 1.5em;
     width: auto;
     height: auto;
-    margin-left: 42.5%;
+    margin-left: 29%;
 
 }
 
 button:hover
 {
-    background: #316868;
     text-decoration: none;
+    color: #286C6C;
 }
 
-.btn-submit-devis
+.btn-connex-login
 {
-    margin-top: -5%;
-    margin-bottom: 2.5%;
+    margin-top: 15%;
+    font-size: 12px;
 }
 
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
-    width: 500px;
-    padding: 30px;
-    background: #FFFFFF;
-    margin: 50px auto 120px auto;
+    width: 350px;
+    padding: 30px 30px 50px 30px;
+    background-color: #286C6C;
+    color: #FFFFFF;
+    margin: 50px auto ;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+
 }
-/*.form-style-8 h2{
+.form-style-8 h2{
     background: #4D4D4D;
     text-transform: uppercase;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -102,10 +77,6 @@ button:hover
     font-weight: 100;
     padding: 20px;
     margin: -30px -30px 30px -30px;
-}*/
-
-.form-style-8 h1{
-    text-align: center;
 }
 .form-style-8 input[type="text"],
 .form-style-8 input[type="date"],
@@ -132,6 +103,7 @@ button:hover
     margin-bottom: 10px;
     font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
+    color: #FFFFFF;
 }
 .form-style-8 textarea{
     resize:none;
