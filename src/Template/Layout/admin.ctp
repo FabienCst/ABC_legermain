@@ -45,7 +45,7 @@ $cakeDescription = 'ABC Legermain';
 <body>
     <div class="responsive-bar">
         <div class="logo">
-            <?= $this->Html->image('abc-logo.png') ?>
+            <a href="/"><?= $this->Html->image('abc-logo.png') ?></a>
         </div>
         <div class="menu">
             <?= $this->Html->image('menu-logo.svg') ?>
@@ -53,7 +53,7 @@ $cakeDescription = 'ABC Legermain';
     </div>
     <nav>
         <div class="logo">
-        	<?= $this->Html->image('abc-logo.png') ?>
+        	<a href="/"><?= $this->Html->image('abc-logo.png') ?></a>
             <ul>
                 <li><a>Messagerie</a>
                     <ul>
@@ -61,8 +61,8 @@ $cakeDescription = 'ABC Legermain';
                         <li><?= $this->Html->link(__('Candidatures'), ['controller' => 'Messagerie' , 'action' => 'candidatures']) ?></li>
                     </ul>
                 </li>
-                <li><?= $this->Html->link(__('Réalisations'), ['controller' => 'Réalisations' , 'action' => 'index']) ?></li>
-                <li><?= $this->Html->link(__('Actualités'), ['controller' => 'Actualités' , 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Réalisations'), ['controller' => 'Realisations' , 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Actualités'), ['controller' => 'Actualites' , 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('Prestations'), ['controller' => 'Prestations' , 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('Recrutement'), ['controller' => 'Offres' , 'action' => 'index']) ?></li>
                 <li>
@@ -76,5 +76,6 @@ $cakeDescription = 'ABC Legermain';
         </div>
     </nav>
     <?= $this->fetch('content') ?>
+
 </body>
 </html>

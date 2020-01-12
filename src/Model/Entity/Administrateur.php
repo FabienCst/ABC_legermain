@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Entity;
 
+use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
 
 /**
@@ -35,4 +36,21 @@ class Administrateur extends Entity
         'telephone' => true,
         'actif' => true,
     ];
+
+    /**
+     * Fields that are excluded from JSON versions of the entity.
+     *
+     * @var array
+     */
+    protected $_hidden = [
+        'mot_de_passe'
+    ];
+
+    protected function _setMot_de_passe($value) {
+
+        if (strlen($value)) {
+            $hasher = new DefaultPasswordHasher();
+            return $hasher->hash($value);
+        }
+    }
 }

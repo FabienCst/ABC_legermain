@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use Cake\Auth\DefaultPasswordHasher;
 use App\Controller\AppController;
 
 /**
@@ -22,6 +23,8 @@ class RealisationsController extends AppController
         $realisations = $this->paginate($this->Realisations);
 
         $this->set(compact('realisations'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -38,6 +41,8 @@ class RealisationsController extends AppController
         ]);
 
         $this->set('realisation', $realisation);
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -47,17 +52,54 @@ class RealisationsController extends AppController
      */
     public function add()
     {
+        $date = date('Y-m-d');
+        $this->set('date',$date);
+
+        $this->loadModel('Prestations');
+        $prestations = $this->Prestations->find('all', ['order' => 'Prestations.idPrestation ASC']);
+        $titre_prestations = array();
+        foreach($prestations as $prestation) {
+            array_push($titre_prestations, $prestation->titre);
+        }
+        $this->set('titre_prestations',$titre_prestations);
+
+
+
         $realisation = $this->Realisations->newEntity();
         if ($this->request->is('post')) {
-            $realisation = $this->Realisations->patchEntity($realisation, $this->request->getData());
-            if ($this->Realisations->save($realisation)) {
-                $this->Flash->success(__('The realisation has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            $myname = $this->request->getData()['fichier']['name'];
+            $mytmp = $this->request->getData()['fichier']['tmp_name'];
+            $myext = substr(strrchr($myname,"."),1);
+            $mypath = "img\\realisations\principale\\".$myname;
+
+            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)) {
+
+                $idPrestations = $this->Prestations->find('all', array(
+                    'conditions' => array('Prestations.titre' => $titre_prestations[$this->request->getData()['prestation']])
+                ));
+
+                foreach ($idPrestations as $id) {
+                    $realisation->idPrestation = (int) $id->idPrestation;
+                }
+
+                $realisation->titre = $this->request->getData()['titre'];
+                $realisation->date = date('Y-m-d', strtotime(implode('-',$this->request->getData()['date'])));
+                $realisation->description = $this->request->getData()['description'];
+                $realisation->image = $myname;
+
+                if ($this->Realisations->save($realisation)) {
+                    $this->Flash->success(__('The realisation has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The realisation could not be saved. Please, try again.'));
+
             }
-            $this->Flash->error(__('The realisation could not be saved. Please, try again.'));
         }
         $this->set(compact('realisation'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -69,19 +111,60 @@ class RealisationsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->loadModel('Prestations');
+        $prestations = $this->Prestations->find('all', ['order' => 'Prestations.idPrestation ASC']);
+        $titre_prestations = array();
+        foreach($prestations as $prestation) {
+            array_push($titre_prestations, $prestation->titre);
+        }
+        $this->set('titre_prestations',$titre_prestations);
+
         $realisation = $this->Realisations->get($id, [
             'contain' => [],
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $realisation = $this->Realisations->patchEntity($realisation, $this->request->getData());
-            if ($this->Realisations->save($realisation)) {
-                $this->Flash->success(__('The realisation has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+        $mypathToDelete = "img\\realisations\principale\\".$realisation->image;
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+
+            echo $mypathToDelete;
+            if( file_exists ( Folder::realpath($mypathToDelete)))
+                unlink( $mypathToDelete );
+
+            $myname = $this->request->getData()['fichier']['name'];
+            $mytmp = $this->request->getData()['fichier']['tmp_name'];
+            $myext = substr(strrchr($myname,"."),1);
+            $mypath = "img\\realisations\principale\\".$myname;
+
+            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)) {
+
+                $realisation = $this->Realisations->patchEntity($realisation, $this->request->getData());
+
+                $idPrestations = $this->Prestations->find('all', array(
+                    'conditions' => array('Prestations.titre' => $titre_prestations[$this->request->getData()['presta']])
+                ));
+
+                foreach ($idPrestations as $id) {
+                    $realisation->idPrestation = (int) $id->idPrestation;
+                }
+
+                $realisation->titre = $this->request->getData()['titre'];
+                $realisation->date = date('Y-m-d', strtotime(implode('-',$this->request->getData()['date'])));;
+                $realisation->description = $this->request->getData()['description'];
+                $realisation->image = $myname;
+
+                if ($this->Realisations->save($realisation)) {
+                    $this->Flash->success(__('The realisation has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The realisation could not be saved. Please, try again.'));
+
             }
-            $this->Flash->error(__('The realisation could not be saved. Please, try again.'));
         }
         $this->set(compact('realisation'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -102,5 +185,16 @@ class RealisationsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+
+        $this->viewBuilder()->setLayout('admin');
+    }
+
+    public function isAuthorized($administrateur) {
+
+        $action = $this->request->getParam('action');
+        $pass1 = ($administrateur['actif'] === 1);
+        $pass2 = in_array($action, ['login', 'logout']);
+
+        return $pass1 || $pass2;
     }
 }
