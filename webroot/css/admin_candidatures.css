@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park&display=swap');
+
+section.content
+{
+    max-width: 60%;
+    min-width: 60%;
+    height: 50vh;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #CBECEC;
+    padding: 100px;
+}
+
+div.champs
+{
+    margin-top: 30px;
+    color: #155959;
+    font-family: 'Kulim Park', sans-serif;
+    font-size: 1.5em;
+}
+
+div.contenu
+{
+    margin-top: 30px;
+    color: #8BC2C2;
+    font-size: 1.5em;
+}
+
+p
+{
+    color: #8BC2C2;
+}
+
+div.date
+{
+    color: #155959;
+    font-family: 'Kulim Park', sans-serif;
+    font-size: 1.2em;
+}
+
+div.btn
+{
+    margin-bottom: 30px;
+    margin-right: 100px;
+    display: inline;
+    box-shadow: 0 1px 12px #000000;
+    border-radius: 100px;
+    padding: 10px 30px 10px 30px;
+    background: #2A5858;
+    text-decoration: none;
+    color: white;
+    font-size: 1.6em;
+    max-width: 500px;
+}
+
+div.btn p
+{
+    text-decoration: none;
+    color: white;
+    font-size: 1.6em;
+    margin-left: 120px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+div.gauche
+{
+    display: grid;
+    width: 540px;
+    grid-template-columns: 200px 200px;
+    align-items: start;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}

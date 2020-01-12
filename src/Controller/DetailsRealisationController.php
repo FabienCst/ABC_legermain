@@ -16,4 +16,7 @@ class DetailsRealisationController extends AppController
         $this->set('realisation', $realisation);
     }
 
+    public function isAuthorized($administrateur) {
+        return true;
+    }
 }

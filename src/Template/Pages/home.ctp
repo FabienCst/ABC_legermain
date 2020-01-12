@@ -1,8 +1,6 @@
 <?php
-
 $this->layout = false;
 $cakeDescription = 'ABC Legermain | Accueil';
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +25,6 @@ $cakeDescription = 'ABC Legermain | Accueil';
         		$('nav ul').toggleClass('active')
         	})
         })
-
     </script>
 
     <?= $this->Html->meta('icon') ?>
@@ -100,7 +97,7 @@ $cakeDescription = 'ABC Legermain | Accueil';
     <section class="bande_labels">
         <div class="labels">
             <p>
-                <?= $this->Html->image('labels.svg') ?>
+                <?= $this->Html->image('labels.png') ?>
             </p>
         </div>
     </section>
@@ -109,6 +106,17 @@ $cakeDescription = 'ABC Legermain | Accueil';
             <p>"Afin d’être plus concret, nous vous invitons à découvrir, en images, les ouvrages déjà réalisés."</p>
             <p></p>
         </div>
+    </section>
+    <section class="prestations">
+        <?php foreach($prestations as $prestation):?>
+        <div class="presta1">
+            <img src="/img/prestations/<?= $prestation->image ?>" alt="prestation">
+            <h1><?= $prestation->sous_titre ?></h1>
+            <p><?= $prestation->description ?></p>
+
+            </div>
+        <?php endforeach; ?>
+
     </section>
     <section class="bande-contact">
         <div class="contact">
@@ -124,16 +132,16 @@ $cakeDescription = 'ABC Legermain | Accueil';
         </div>
     </section>
     <section class="back_btn">
-    <div class="btn_devis">
-        <a href="/devis/index";">
+        <div class="btn_devis">
+            <a href="/devis/index";">
             <div class="docs">
                 <?= $this->Html->image('docs.svg') ?>
             </div>
             <div>
                 <p>Demander un devis</p>
             </div>
-        <a>
-    </div>
+            <a>
+        </div>
     </section>
 <section class="footer">
         <div class="icones-footer">

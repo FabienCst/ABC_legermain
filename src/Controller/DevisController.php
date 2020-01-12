@@ -43,4 +43,8 @@ class DevisController extends AppController
 
         $this->set(compact('projets'));
     }
+
+    public function isAuthorized($administrateur) {
+        return true;
+    }
 }

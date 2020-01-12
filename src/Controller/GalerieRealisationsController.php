@@ -26,4 +26,7 @@ class GalerieRealisationsController extends AppController
         $this->set('prestation',$prestation);
     }
 
+    public function isAuthorized($administrateur) {
+        return true;
+    }
 }

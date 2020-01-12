@@ -22,4 +22,7 @@ class DetailsOffreController extends AppController
         $this->set('offre', $offre);
     }
 
+    public function isAuthorized($administrateur) {
+        return true;
+    }
 }

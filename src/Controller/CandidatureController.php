@@ -42,7 +42,7 @@ class CandidatureController extends AppController
                 if ($this->Postulants->save($postulant)) {
                     $this->Flash->success(__('Votre candidature a bien été envoyé..'));
 
-                    return $this->redirect(['action' => 'index']);
+                    return $this->redirect(['controller' => 'Recrutement', 'action' => 'index']);
                 }
                 $this->Flash->error(__('Votre candidature n\'a malheureusement pas pu être envoyé.'));
             }
@@ -51,6 +51,10 @@ class CandidatureController extends AppController
 
         $this->set('idOffre', $idOffre);
         $this->set('postulant', $postulant);
+    }
+
+    public function isAuthorized($administrateur) {
+        return true;
     }
 
 }

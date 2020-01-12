@@ -4,30 +4,23 @@
  * @var \App\Model\Entity\Realisation $realisation
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $realisation->idRealisation],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $realisation->idRealisation)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Realisations'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="realisations form large-9 medium-8 columns content">
-    <?= $this->Form->create($realisation) ?>
-    <fieldset>
-        <legend><?= __('Edit Realisation') ?></legend>
-        <?php
-            echo $this->Form->control('titre');
-            echo $this->Form->control('description');
-            echo $this->Form->control('date', ['empty' => true]);
-            echo $this->Form->control('image');
-            echo $this->Form->control('idPrestation');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+<?= $this->Html->css('admin_realisation_addedit.css') ?>
+
+<section class="content">
+
+    <div class="form-style-8">
+        <?= $this->Form->create($realisation, ['enctype' =>'multipart/form-data','type' => 'file']) ?>
+        <fieldset>
+            <?php
+                echo $this->Form->control('titre');
+                echo $this->Form->control('description');
+                echo $this->Form->input('date', array('default'=>$realisation->date));
+                echo $this->Form->control('presta',['options' => $titre_prestations]);
+                echo $this->Form->file('fichier',['type' => 'file']);
+            ?>
+        </fieldset>
+        <?= $this->Form->button(__('Submit')) ?>
+        <?= $this->Form->end() ?>
+    </div>
+
+</section>

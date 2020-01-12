@@ -158,7 +158,7 @@ nav.black .separation2
 
 .labels
 {
-    margin: 0 0 0 20%;
+    margin: 0 0 0 29%;
 }
 
 section.bande_labels
@@ -217,6 +217,13 @@ div.docs img
     margin-bottom: -50px;
 }
 
+section.back_btn
+{
+    background: url("../img/fond-devis-accueil.png");
+    padding: 50px;
+
+}
+
 div.btn_devis
 {
     display: grid;
@@ -230,6 +237,7 @@ div.btn_devis
     margin-left: auto;
     margin-right: auto;
     width: 400px;
+
 }
 
 div.btn_devis p
@@ -296,7 +304,7 @@ section.footer a:hover
 
 .icones-footer
 {
-    margin:  -5% 0 0 44%;
+    margin:  -5% 0 0 45%;
 
 }
 
@@ -314,6 +322,39 @@ section.footer a:hover
 .responsive-bar
 {
     display: none;
+}
+
+.presta1 img
+{
+    width: 1000px;
+    height: 600px;
+    float: left;
+}
+
+.presta1
+{
+    display: inline-block;
+}
+
+.presta1 h1
+{
+    font-size: 1.5em;
+    font-weight:bold;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.presta1 p
+{
+    font-size: 1.2em;
+    margin-top: 50px;
+    text-align: center;
+}
+
+section.prestations
+{
+    background-color: #B78A6A;
+    color: #FFFFFF;
 }
 
 @media(max-width: 768px) {
@@ -392,6 +433,4 @@ section.footer a:hover
         line-height: 50px !important;
         text-transform: uppercase;
     }
-
-
 }

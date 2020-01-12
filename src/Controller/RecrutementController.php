@@ -14,4 +14,8 @@ class RecrutementController extends AppController
         $this->set('offres', $offres);
     }
 
+    public function isAuthorized($administrateur) {
+        return true;
+    }
+
 }
