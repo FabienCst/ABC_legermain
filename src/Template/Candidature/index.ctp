@@ -16,8 +16,8 @@
             echo $this->Form->control('prenom');
             echo $this->Form->control('mail');
             echo $this->Form->control('telephone');
-            echo $this->Form->file('cv',['type' => 'file']);
-            echo $this->Form->file('lettre_motivation',['type' => 'file']);
+            echo $this->Form->file('cv',['type' => 'file'],['empty' => false]);
+            echo $this->Form->file('lettre_motivation',['type' => 'file'],['empty' => false]);
         ?>
     </fieldset>
 </section>
@@ -26,9 +26,10 @@
 
     <?= $this->Form->button(__('Envoyer la candidature')) ?>
     <?= $this->Form->end() ?>
-
-    <a href="/details-offre/index/<?php echo $idOffre; ?>";"><div class="btn_devis">
-        <p>Annuler</p>
-    </div><a>
-
 </div>
+<div class="btn_return-devis">
+    <a href="/details-offre/index/<?php echo $idOffre; ?>";">
+        <p>Annuler</p>
+    </div>
+
+

@@ -23,6 +23,8 @@ class PrestationsController extends AppController
         $prestations = $this->paginate($this->Prestations);
 
         $this->set(compact('prestations'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -39,6 +41,8 @@ class PrestationsController extends AppController
         ]);
 
         $this->set('prestation', $prestation);
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -80,6 +84,8 @@ class PrestationsController extends AppController
             }
         }
         $this->set(compact('prestation'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -95,15 +101,32 @@ class PrestationsController extends AppController
             'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $prestation = $this->Prestations->patchEntity($prestation, $this->request->getData());
-            if ($this->Prestations->save($prestation)) {
-                $this->Flash->success(__('The prestation has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            $myname = $this->request->getData()['fichier']['name'];
+            $mytmp = $this->request->getData()['fichier']['tmp_name'];
+            $myext = substr(strrchr($myname,"."),1);
+            $hasher = new DefaultPasswordHasher();
+            //$mynameHash = $hasher->hash($myname);
+            $mypath = "img\prestations\\".$myname;
+
+            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)) {
+
+                $prestation->titre = $this->request->getData()['titre'];
+                $prestation->sous_titre = $this->request->getData()['sous_titre'];
+                $prestation->description = $this->request->getData()['description'];
+                $prestation->image = $myname;
+
+                if ($this->Prestations->save($prestation)) {
+                    $this->Flash->success(__('The prestation has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The prestation could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The prestation could not be saved. Please, try again.'));
         }
         $this->set(compact('prestation'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -115,6 +138,11 @@ class PrestationsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->loadModel('Realisations');
+        $realisations = $this->Realisations->find('all', array(
+            'conditions' => array('Realisations.idPrestation' => $id)
+        ));
+
         $this->request->allowMethod(['post', 'delete']);
         $prestation = $this->Prestations->get($id);
         if ($this->Prestations->delete($prestation)) {

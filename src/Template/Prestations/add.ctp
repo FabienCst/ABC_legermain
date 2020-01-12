@@ -4,18 +4,22 @@
  * @var \App\Model\Entity\Prestation $prestation
  */
 ?>
+<?= $this->Html->css('admin_realisation_addedit.css') ?>
 
-<div class="prestations form large-9 medium-8 columns content">
-    <?= $this->Form->create($prestation, ['enctype' =>'multipart/form-data','type' => 'file']) ?>
-    <fieldset>
-        <legend><?= __('Add Prestation') ?></legend>
-        <?php
-            echo $this->Form->control('titre');
-            echo $this->Form->control('sous_titre');
-            echo $this->Form->control('description');
-            echo $this->Form->file('fichier',['type' => 'file']);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+<section class="content">
+
+    <div class="form-style-8">
+        <?= $this->Form->create($prestation, ['enctype' =>'multipart/form-data','type' => 'file']) ?>
+        <fieldset>
+            <?php
+                echo $this->Form->control('titre');
+                echo $this->Form->control('sous_titre');
+                echo $this->Form->control('description');
+                echo $this->Form->file('fichier',['type' => 'file'],['empty' => false]);
+            ?>
+        </fieldset>
+        <?= $this->Form->button(__('Ajouter')) ?>
+        <?= $this->Form->end() ?>
+    </div>
+
+</section>

@@ -29,6 +29,10 @@
             <td><?= h($projet->mail) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Telephone') ?></th>
+            <td><?= h($projet->telephone) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Adresse') ?></th>
             <td><?= h($projet->adresse) ?></td>
         </tr>

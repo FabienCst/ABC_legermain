@@ -22,6 +22,8 @@ class OffresController extends AppController
         $offres = $this->paginate($this->Offres);
 
         $this->set(compact('offres'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -38,6 +40,8 @@ class OffresController extends AppController
         ]);
 
         $this->set('offre', $offre);
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -50,6 +54,7 @@ class OffresController extends AppController
         $offre = $this->Offres->newEntity();
         if ($this->request->is('post')) {
             $offre = $this->Offres->patchEntity($offre, $this->request->getData());
+
             if ($this->Offres->save($offre)) {
                 $this->Flash->success(__('The offre has been saved.'));
 
@@ -58,6 +63,8 @@ class OffresController extends AppController
             $this->Flash->error(__('The offre could not be saved. Please, try again.'));
         }
         $this->set(compact('offre'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -74,6 +81,7 @@ class OffresController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $offre = $this->Offres->patchEntity($offre, $this->request->getData());
+
             if ($this->Offres->save($offre)) {
                 $this->Flash->success(__('The offre has been saved.'));
 
@@ -82,6 +90,8 @@ class OffresController extends AppController
             $this->Flash->error(__('The offre could not be saved. Please, try again.'));
         }
         $this->set(compact('offre'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -102,5 +112,14 @@ class OffresController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function isAuthorized($administrateur) {
+
+        $action = $this->request->getParam('action');
+        $pass1 = ($administrateur['actif'] === 1);
+        $pass2 = in_array($action, ['login', 'logout']);
+
+        return $pass1 || $pass2;
     }
 }

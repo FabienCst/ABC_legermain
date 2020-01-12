@@ -16,7 +16,6 @@ section.content
 }
 
 /*
-
 div.btn_devis
 {
     display: grid;
@@ -29,19 +28,16 @@ div.btn_devis
     width: auto;
     justify-self: center;
 }
-
 div.btn_devis p
 {
     text-decoration: none;
     color: white;
     font-size: 1.5em;
 }
-
 a
 {
     text-decoration: none;
 }
-
 .btns
 {
     display: grid;
@@ -51,20 +47,62 @@ a
     margin-right: auto;
     width: 50%;
 }
-
 a:hover div.btn_devis
 {
     background: #316868;
     text-decoration: none;
 }
 */
+
+.btns{
+    display: inline-block;
+    margin-left: 35%;
+    margin-bottom: 5%;
+    margin-top: -10%;
+}
+.btn_return-devis
+{
+    display: inline-block;
+    grid-template-columns: auto;
+    box-shadow: 0 1px 12px #000000;
+    border-radius: 100px;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    background: #2A5858;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+
+
+    margin-left: 5%;
+    margin-top: -10px;
+
+}
+
+/*button:hover
+{
+    background: #316868;
+    text-decoration: none;
+}*/
+.btn_return-devis a{
+    text-decoration: none;
+}
+
+.btn_return-devis p
+{
+    margin-top: 0;
+    margin-bottom: 1.5%;
+    text-decoration: none;
+    color: white;
+
+}
 button
 {
     display: grid;
     grid-template-columns: auto;
     box-shadow: 0 1px 12px #000000;
     border-radius: 100px;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 20px 10px 20px;
     text-align: center;
     background: #2A5858;
     border: none;
@@ -72,7 +110,7 @@ button
     font-size: 1.5em;
     width: auto;
     height: auto;
-    margin-left: 42.5%;
+
 
 }
 
@@ -93,11 +131,11 @@ button:hover
     width: 500px;
     padding: 30px;
     background: #FFFFFF;
-    margin: 50px auto 120px auto;
+    margin: 50px auto 50px auto;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
-                                                                                                                                  }
+}
 /*.form-style-8 h2{
     background: #4D4D4D;
     text-transform: uppercase;

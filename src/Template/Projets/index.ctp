@@ -19,6 +19,7 @@
                 <th scope="col"><?= $this->Paginator->sort('nom') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('prenom') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('mail') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('telephone') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('adresse') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('code_postal') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('ville') ?></th>
@@ -34,6 +35,7 @@
                 <td><?= h($projet->nom) ?></td>
                 <td><?= h($projet->prenom) ?></td>
                 <td><?= h($projet->mail) ?></td>
+                <td><?= h($projet->telephone) ?></td>
                 <td><?= h($projet->adresse) ?></td>
                 <td><?= h($projet->code_postal) ?></td>
                 <td><?= h($projet->ville) ?></td>

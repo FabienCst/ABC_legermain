@@ -61,10 +61,26 @@ $cakeDescription = 'ABC Legermain';
                         <li><?= $this->Html->link(__('Candidatures'), ['controller' => 'Messagerie' , 'action' => 'candidatures']) ?></li>
                     </ul>
                 </li>
-                <li><?= $this->Html->link(__('Réalisations'), ['controller' => 'Realisations' , 'action' => 'index']) ?></li>
-                <li><?= $this->Html->link(__('Actualités'), ['controller' => 'Actualites' , 'action' => 'index']) ?></li>
-                <li><?= $this->Html->link(__('Prestations'), ['controller' => 'Prestations' , 'action' => 'index']) ?></li>
-                <li><?= $this->Html->link(__('Recrutement'), ['controller' => 'Offres' , 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Réalisations'), ['controller' => 'Realisations' , 'action' => 'index']) ?>
+                    <ul>
+                        <li><?= $this->Html->link(__('Ajouter une réalisation'), ['controller' => 'Realisations' , 'action' => 'add']) ?></li>
+                    </ul>
+                </li>
+                <li><?= $this->Html->link(__('Actualités'), ['controller' => 'Actualites' , 'action' => 'index']) ?>
+                    <ul>
+                        <li><?= $this->Html->link(__('Ajouter une actualité'), ['controller' => 'Actualites' , 'action' => 'add']) ?></li>
+                    </ul>
+                </li>
+                <li><?= $this->Html->link(__('Prestations'), ['controller' => 'Prestations' , 'action' => 'index']) ?>
+                    <ul>
+                        <li><?= $this->Html->link(__('Ajouter une prestation'), ['controller' => 'Prestations' , 'action' => 'add']) ?></li>
+                    </ul>
+                </li>
+                <li><?= $this->Html->link(__('Recrutement'), ['controller' => 'Offres' , 'action' => 'index']) ?>
+                    <ul>
+                        <li><?= $this->Html->link(__('Ajouter une offre d\'emploi'), ['controller' => 'Offres' , 'action' => 'add']) ?></li>
+                    </ul>
+                </li>
                 <li>
                     <svg class="separation1" viewBox="0 0 3 17.528">
                         <path fill="rgba(0,0,0,0)" stroke="rgba(255,255,255,1)" stroke-width="3px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="separation1" d="M 0 0 L 0 17.527587890625">

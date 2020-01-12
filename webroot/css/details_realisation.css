@@ -37,14 +37,10 @@ div.description
     margin-bottom: 50px;
 }
 
-
 div.docs img
 {
     width: 45px;
     height: 45px;
-    display: inline-block;
-    margin-left: 30px;
-    margin-bottom: -50px;
 }
 
 div.btn_devis
@@ -72,13 +68,11 @@ div.btn_devis p
     display: inline-block;
 }
 
-a
+div.docs img
 {
-    text-decoration: none;
-}
-
-a:hover div.btn_devis
-{
-    background: #316868;
-    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-bottom: -50px;
 }

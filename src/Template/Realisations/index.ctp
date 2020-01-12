@@ -4,7 +4,6 @@
  * @var \App\Model\Entity\Realisation[]|\Cake\Collection\CollectionInterface $realisations
  */
 ?>
-$this->layout = 'admin';
 <?= $this->Html->css('admin_realisation.css') ?>
 
 <?php foreach ($realisations as $realisation): ?>

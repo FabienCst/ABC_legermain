@@ -4,6 +4,7 @@ body
 {
     margin: 0;
     padding: 0;
+    padding-top: 80px;
     font-family: sans-serif;
 }
 
@@ -408,6 +409,7 @@ section.footer a:hover
     width: 1000px;
     height: 600px;
     float: left;
+    object-fit: cover;
 }
 
 .presta1
@@ -435,5 +437,3 @@ section.prestations
     background-color: #B78A6A;
     color: #FFFFFF;
 }
-
-
