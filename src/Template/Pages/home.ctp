@@ -96,9 +96,9 @@ $cakeDescription = 'ABC Legermain | Accueil';
     </section>
     <section class="bande_labels">
         <div class="labels">
-            <p>
-                <?= $this->Html->image('labels.png') ?>
-            </p>
+            <a href="https://www.qualibat.com/" ><?= $this->Html->image('label-qualibat.png') ?></a>
+            <a href="https://www.fondation-patrimoine.org/" >  <?= $this->Html->image('label-patrimoine.png') ?></a>
+            <a href="https://www.artisanat.fr/artisan/valoriser-mon-activite/obtenir-un-titre-de-maitre-artisan" >   <?= $this->Html->image('label-maitre.png') ?></a>
         </div>
     </section>
     <section class="content">

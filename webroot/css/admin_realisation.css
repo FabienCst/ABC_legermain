@@ -22,6 +22,10 @@ div.gauche
 {
     height: 200px;
 }
+div.gauche img
+{
+    object-fit: cover;
+}
 
 div.droite
 {
@@ -68,6 +72,13 @@ div.boutons
     color: #155959;
 }
 
+.ajout
+{
+    position: fixed;
+    margin-top: 12vh;
+    margin-left: 7vh;
+}
+
 div.btn
 {
     box-shadow: 0 1px 12px #000000;
@@ -88,6 +99,12 @@ a{
 a:hover
 {
     text-decoration: none;
+    color: #8BC2C2;
+    transition: 0.5s;
+}
+
+a:hover img
+{
     color: #8BC2C2;
     transition: 0.5s;
 }

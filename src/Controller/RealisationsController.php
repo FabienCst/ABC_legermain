@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use Cake\Auth\DefaultPasswordHasher;
 use App\Controller\AppController;
+use Cake\Filesystem\Folder;
+use Cake\Filesystem\File;
 
 /**
  * Realisations Controller
@@ -76,7 +78,7 @@ class RealisationsController extends AppController
             if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)) {
 
                 $idPrestations = $this->Prestations->find('all', array(
-                    'conditions' => array('Prestations.titre' => $titre_prestations[$this->request->getData()['prestation']])
+                    'conditions' => array('Prestations.titre' => $titre_prestations[$this->request->getData()['presta']])
                 ));
 
                 foreach ($idPrestations as $id) {
@@ -123,13 +125,8 @@ class RealisationsController extends AppController
             'contain' => [],
         ]);
 
-        $mypathToDelete = "img\\realisations\principale\\".$realisation->image;
-
         if ($this->request->is(['patch', 'post', 'put'])) {
 
-            echo $mypathToDelete;
-            if( file_exists ( Folder::realpath($mypathToDelete)))
-                unlink( $mypathToDelete );
 
             $myname = $this->request->getData()['fichier']['name'];
             $mytmp = $this->request->getData()['fichier']['tmp_name'];
@@ -149,7 +146,7 @@ class RealisationsController extends AppController
                 }
 
                 $realisation->titre = $this->request->getData()['titre'];
-                $realisation->date = date('Y-m-d', strtotime(implode('-',$this->request->getData()['date'])));;
+                $realisation->date = date('Y-m-d', strtotime(implode('-',$this->request->getData()['date'])));
                 $realisation->description = $this->request->getData()['description'];
                 $realisation->image = $myname;
 
@@ -185,6 +182,26 @@ class RealisationsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+
+        $this->viewBuilder()->setLayout('admin');
+    }
+
+    /**
+     * Delete method
+     *
+     * @param string|null $id Realisation id.
+     * @return \Cake\Http\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function deleteFromPrestation($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $realisation = $this->Realisations->get($id);
+        if ($this->Realisations->delete($realisation)) {
+            $this->Flash->success(__('The realisation has been deleted.'));
+        } else {
+            $this->Flash->error(__('The realisation could not be deleted. Please, try again.'));
+        }
 
         $this->viewBuilder()->setLayout('admin');
     }

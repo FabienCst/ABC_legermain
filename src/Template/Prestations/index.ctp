@@ -4,40 +4,42 @@
  * @var \App\Model\Entity\Prestation[]|\Cake\Collection\CollectionInterface $prestations
  */
 ?>
-<div class="prestations index large-9 medium-8 columns content">
-    <h3><?= __('Prestations') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('idPrestation') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('titre') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('image') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($prestations as $prestation): ?>
-            <tr>
-                <td><?= $this->Number->format($prestation->idPrestation) ?></td>
-                <td><?= h($prestation->titre) ?></td>
-                <td><?= h($prestation->image) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $prestation->idPrestation]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $prestation->idPrestation]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $prestation->idPrestation], ['confirm' => __('Are you sure you want to delete # {0}?', $prestation->idPrestation)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
+$this->layout = 'admin';
+<?= $this->Html->css('admin_realisation.css') ?>
+
+<div class="ajout">
+    <a href="/prestations/add"><img width="170" height="170" src="img/plus2.svg" ><a>
 </div>
+
+<?php foreach ($prestations as $prestation): ?>
+
+<section class="content">
+
+        <div class="gauche">
+            <img width="350" height="200" src="/img/prestations/<?php echo h($prestation->image); ?>" >
+        </div>
+
+        <div class="droite">
+            <div class="haut_droite">
+                <div class="champs">Titre</div>
+                <div class="contenu"><?= h($prestation->titre); ?></div>
+                <div class="champs">Sous-titre</div>
+                <div class="contenu"><?= h($prestation->sous_titre); ?></div>
+                <div class="champs">Description</div>
+            </div>
+            <div class="bas_droite">
+                <div class="contenu"><?= h($prestation->description); ?></div>
+            </div>
+        </div>
+
+        <div class="boutons">
+            <a><div class="btn">
+                <?= $this->Form->postLink(__('Supprimer'), ['action' => 'delete', $prestation->idPrestation], ['confirm' => __('Etes-vous sur de vouloir supprimer cette prestations ? La supprimer, supprimera toutes les réalisations qui lui sont associés')]) ?>
+            </div></a>
+            <a><div class="btn">
+                <?= $this->Html->link(__('Modifier'), ['action' => 'edit', $prestation->idPrestation]) ?>
+            </div></a>
+        </div>
+
+</section>
+<?php endforeach; ?>

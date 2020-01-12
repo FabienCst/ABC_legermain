@@ -22,6 +22,8 @@ class ActualitesController extends AppController
         $actualites = $this->paginate($this->Actualites);
 
         $this->set(compact('actualites'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -38,6 +40,8 @@ class ActualitesController extends AppController
         ]);
 
         $this->set('actualite', $actualite);
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -47,17 +51,34 @@ class ActualitesController extends AppController
      */
     public function add()
     {
+        $date = date('Y-m-d');
         $actualite = $this->Actualites->newEntity();
         if ($this->request->is('post')) {
-            $actualite = $this->Actualites->patchEntity($actualite, $this->request->getData());
-            if ($this->Actualites->save($actualite)) {
-                $this->Flash->success(__('The actualite has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            $myname = $this->request->getData()['fichier']['name'];
+            $mytmp = $this->request->getData()['fichier']['tmp_name'];
+            $myext = substr(strrchr($myname,"."),1);
+            $mypath = "img\\actualites\principale\\".$myname;
+
+            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)) {
+
+                $actualite->titre = $this->request->getData()['titre'];
+                $actualite->date = $date;
+                $actualite->description = $this->request->getData()['description'];
+                $actualite->image = $myname;
+
+                if ($this->Actualites->save($actualite)) {
+                    $this->Flash->success(__('The actualite has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The actualite could not be saved. Please, try again.'));
+
             }
-            $this->Flash->error(__('The actualite could not be saved. Please, try again.'));
         }
         $this->set(compact('actualite'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -72,16 +93,33 @@ class ActualitesController extends AppController
         $actualite = $this->Actualites->get($id, [
             'contain' => [],
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $actualite = $this->Actualites->patchEntity($actualite, $this->request->getData());
-            if ($this->Actualites->save($actualite)) {
-                $this->Flash->success(__('The actualite has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+        $date = date('Y-m-d');
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $myname = $this->request->getData()['fichier']['name'];
+            $mytmp = $this->request->getData()['fichier']['tmp_name'];
+            $myext = substr(strrchr($myname,"."),1);
+            $mypath = "img\\actualites\principale\\".$myname;
+
+            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)) {
+
+                $actualite->titre = $this->request->getData()['titre'];
+                $actualite->date = $date;
+                $actualite->description = $this->request->getData()['description'];
+                $actualite->image = $myname;
+
+                if ($this->Actualites->save($actualite)) {
+                    $this->Flash->success(__('The actualite has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The actualite could not be saved. Please, try again.'));
+
             }
-            $this->Flash->error(__('The actualite could not be saved. Please, try again.'));
         }
         $this->set(compact('actualite'));
+
+        $this->viewBuilder()->setLayout('admin');
     }
 
     /**
@@ -102,5 +140,16 @@ class ActualitesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+
+        $this->viewBuilder()->setLayout('admin');
+    }
+
+    public function isAuthorized($administrateur) {
+
+        $action = $this->request->getParam('action');
+        $pass1 = ($administrateur['actif'] === 1);
+        $pass2 = in_array($action, ['login', 'logout']);
+
+        return $pass1 || $pass2;
     }
 }
