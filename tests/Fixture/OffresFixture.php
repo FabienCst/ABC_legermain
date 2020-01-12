@@ -48,8 +48,8 @@ class OffresFixture extends TestFixture
                 'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'exp_requise' => 'Lorem ipsum dolor sit amet',
                 'corps_metier' => 'Lorem ipsum dolor sit amet',
-                'date_debut' => '2020-01-10',
-                'date_fin' => '2020-01-10',
+                'date_debut' => '2020-01-11',
+                'date_fin' => '2020-01-11',
                 'duree' => 'Lorem ipsum dolor sit amet',
             ],
         ];

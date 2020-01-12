@@ -50,7 +50,7 @@ class PostulantsFixture extends TestFixture
                 'prenom' => 'Lorem ipsum dolor sit amet',
                 'mail' => 'Lorem ipsum dolor sit amet',
                 'telephone' => 'Lorem ipsum dolor ',
-                'date' => '2020-01-10',
+                'date' => '2020-01-11',
                 'cv' => 'Lorem ipsum dolor sit amet',
                 'lettre_motivation' => 'Lorem ipsum dolor sit amet',
                 'idOffre' => 1,

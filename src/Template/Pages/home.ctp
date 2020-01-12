@@ -110,6 +110,17 @@ $cakeDescription = 'ABC Legermain | Accueil';
             <p></p>
         </div>
     </section>
+    <section class="prestations">
+        <?php foreach($prestations as $prestation):?>
+        <div class="presta1">
+            <img src="/img/prestations/<?= $prestation->image ?>" alt="prestation">
+            <h1><?= $prestation->sous_titre ?></h1>
+            <p><?= $prestation->description ?></p>
+
+            </div>
+        <?php endforeach; ?>
+
+    </section>
     <section class="bande-contact">
         <div class="contact">
             <hr width="110%" color="white" size="6" align="left">

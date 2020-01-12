@@ -4,6 +4,12 @@
  * @var \App\Model\Entity\Postulant[]|\Cake\Collection\CollectionInterface $postulants
  */
 ?>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('New Postulant'), ['action' => 'add']) ?></li>
+    </ul>
+</nav>
 <div class="postulants index large-9 medium-8 columns content">
     <h3><?= __('Postulants') ?></h3>
     <table cellpadding="0" cellspacing="0">
@@ -30,8 +36,8 @@
                 <td><?= h($postulant->mail) ?></td>
                 <td><?= h($postulant->telephone) ?></td>
                 <td><?= h($postulant->date) ?></td>
-                <td><a href="/postulants/" download="<?= h($postulant->cv) ?>">Télécharger le CV</a></td>
-                <td><a href="/postulants/" download="<?= h($postulant->lettre_motivation) ?>">Télécharger la lettre de motivation</a></td>
+                <td><?= h($postulant->cv) ?></td>
+                <td><?= h($postulant->lettre_motivation) ?></td>
                 <td><?= $this->Number->format($postulant->idOffre) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $postulant->idPostulant]) ?>

@@ -1,7 +1,6 @@
 <?php
 namespace App\Controller;
 
-use Cake\Auth\DefaultPasswordHasher;
 use App\Controller\AppController;
 
 /**
@@ -48,59 +47,15 @@ class RealisationsController extends AppController
      */
     public function add()
     {
-        $date = date('Y-m-d');
-        $this->set('date',$date);
-
-        $this->loadModel('Prestations');
-        $prestations = $this->Prestations->find('all', ['order' => 'Prestations.idPrestation ASC']);
-        $titre_prestations = array();
-        foreach($prestations as $prestation) {
-            array_push($titre_prestations, $prestation->titre);
-        }
-        $this->set('titre_prestations',$titre_prestations);
-
-
-
         $realisation = $this->Realisations->newEntity();
         if ($this->request->is('post')) {
+            $realisation = $this->Realisations->patchEntity($realisation, $this->request->getData());
+            if ($this->Realisations->save($realisation)) {
+                $this->Flash->success(__('The realisation has been saved.'));
 
-            $myname = $this->request->getData()['fichier']['name'];
-            $mytmp = $this->request->getData()['fichier']['tmp_name'];
-            $myext = substr(strrchr($myname,"."),1);
-            $mypath = "img\\realisations\principale\\".$myname;
-
-            if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)) {
-
-                $idPrestations = $this->Prestations->find('all', array(
-                    'conditions' => array('Prestations.titre' => $titre_prestations[$this->request->getData()['presta']])
-                ));
-
-                foreach ($idPrestations as $id) {
-                    $realisation->idPrestation = (int) $id->idPrestation;
-                }
-
-                $realisation->titre = $this->request->getData()['titre'];
-                $realisation->date = $date;
-                $realisation->description = $this->request->getData()['description'];
-                $realisation->image = $myname;
-
-                echo $realisation->titre;
-                echo $realisation->description;
-                echo $realisation->image;
-                echo $realisation->idPrestation;
-
-                if ($this->Realisations->save($realisation)) {
-                    $this->Flash->success(__('The realisation has been saved.'));
-
-                    return $this->redirect(['action' => 'index']);
-                }
-                $this->Flash->error(__('The realisation could not be saved. Please, try again.'));
-
+                return $this->redirect(['action' => 'index']);
             }
-            else {
-                echo implode( ", ", $this->request->data['fichier']);
-                echo $this->request->data['fichier']['tmp_name'];
-            }
+            $this->Flash->error(__('The realisation could not be saved. Please, try again.'));
         }
         $this->set(compact('realisation'));
     }
@@ -147,14 +102,5 @@ class RealisationsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function isAuthorized($administrateur) {
-
-        $action = $this->request->getParam('action');
-        $pass1 = ($administrateur['actif'] === 1);
-        $pass2 = in_array($action, ['login', 'logout']);
-
-        return $pass1 || $pass2;
     }
 }

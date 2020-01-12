@@ -12,12 +12,6 @@ use App\Controller\AppController;
  */
 class AdministrateursController extends AppController
 {
-
-    public function initialize() {
-        parent::initialize();
-        $this->Auth->allow(['logout']);
-    }
-
     /**
      * Index method
      *
@@ -28,29 +22,6 @@ class AdministrateursController extends AppController
         $administrateurs = $this->paginate($this->Administrateurs);
 
         $this->set(compact('administrateurs'));
-    }
-
-    /**
-     * Index method
-     *
-     **/
-    public function login() {
-        if ($this->request->is('post')) {
-
-            $administrateur = $this->Auth->identify();
-            if ($administrateur) {
-                $this->Auth->setUser($administrateur);
-                return $this->redirect($this->Auth->redirectUrl());
-            }
-            $this->Flash->error('Votre identifiant ou votre mot de passe est incorrect.');
-        }
-    }
-
-
-    public function logout() {
-        $this->Flash->success('Vous avez été déconnecté.');
-        $this->Auth->logout();
-        return $this->redirect(['controller' => 'Pages','action' => 'display']);
     }
 
     /**
@@ -131,14 +102,5 @@ class AdministrateursController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function isAuthorized($administrateur) {
-
-        $action = $this->request->getParam('action');
-        $pass1 = ($administrateur['actif'] === 1);
-        $pass2 = in_array($action, ['login', 'logout']);
-
-        return $pass1 || $pass2;
     }
 }

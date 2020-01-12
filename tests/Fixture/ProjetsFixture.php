@@ -52,7 +52,7 @@ class ProjetsFixture extends TestFixture
                 'ville' => 'Lorem ipsum dolor sit amet',
                 'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'type' => 'Lorem ipsum dolor sit amet',
-                'date' => '2020-01-10',
+                'date' => '2020-01-11',
             ],
         ];
         parent::init();
