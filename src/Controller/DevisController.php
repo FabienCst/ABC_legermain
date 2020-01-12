@@ -20,11 +20,11 @@ class DevisController extends AppController
         $this->loadModel('Projets');
         $projet = $this->Projets->newEntity();
         if ($this->request->is('post')) {
-            //$projet = $this->Projets->patchEntity($projet, $this->request->getData());
 
             $projet->nom = $this->request->getData()['nom'];
             $projet->prenom = $this->request->getData()['prenom'];
             $projet->mail = $this->request->getData()['mail'];
+            $projet->telephone = $this->request->getData()['telephone'];
             $projet->adresse = $this->request->getData()['adresse'];
             $projet->code_postal = $this->request->getData()['code_postal'];
             $projet->ville = $this->request->getData()['ville'];

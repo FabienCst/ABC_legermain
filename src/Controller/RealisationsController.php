@@ -186,26 +186,6 @@ class RealisationsController extends AppController
         $this->viewBuilder()->setLayout('admin');
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Realisation id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function deleteFromPrestation($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $realisation = $this->Realisations->get($id);
-        if ($this->Realisations->delete($realisation)) {
-            $this->Flash->success(__('The realisation has been deleted.'));
-        } else {
-            $this->Flash->error(__('The realisation could not be deleted. Please, try again.'));
-        }
-
-        $this->viewBuilder()->setLayout('admin');
-    }
-
     public function isAuthorized($administrateur) {
 
         $action = $this->request->getParam('action');

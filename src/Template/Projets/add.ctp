@@ -18,6 +18,7 @@
             echo $this->Form->control('nom');
             echo $this->Form->control('prenom');
             echo $this->Form->control('mail');
+            echo $this->Form->control('telephone');
             echo $this->Form->control('adresse');
             echo $this->Form->control('code_postal');
             echo $this->Form->control('ville');

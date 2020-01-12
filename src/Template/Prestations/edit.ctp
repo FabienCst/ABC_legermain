@@ -11,15 +11,14 @@
     <div class="form-style-8">
         <?= $this->Form->create($prestation, ['enctype' =>'multipart/form-data','type' => 'file']) ?>
         <fieldset>
-            <legend><?= __('Add Prestation') ?></legend>
             <?php
                 echo $this->Form->control('titre');
                 echo $this->Form->control('sous_titre');
                 echo $this->Form->control('description');
-                echo $this->Form->file('fichier',['type' => 'file']);
+                echo $this->Form->file('fichier',['type' => 'file'],['empty' => false]);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit')) ?>
+        <?= $this->Form->button(__('Modifier')) ?>
         <?= $this->Form->end() ?>
     </div>
 

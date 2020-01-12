@@ -16,10 +16,10 @@
                 echo $this->Form->control('description');
                 echo $this->Form->input('date', array('default'=>$date));
                 echo $this->Form->control('presta',['options' => $titre_prestations]);
-                echo $this->Form->file('fichier',['type' => 'file']);
+                echo $this->Form->file('fichier',['type' => 'file'],['empty' => false]);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit')) ?>
+        <?= $this->Form->button(__('Ajouter')) ?>
         <?= $this->Form->end() ?>
     </div>
 

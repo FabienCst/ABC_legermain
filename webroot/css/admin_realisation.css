@@ -4,10 +4,10 @@ section.content
 {
     max-width: 60%;
     min-width: 60%;
-    height: 300px;
+    height: auto;
     margin-top: 10vh;
     margin-bottom: 10vh;
-    margin-left: 50vh;
+    margin-left: 35vh;
     margin-right: auto;
     border: 1px solid #CBECEC;
     padding: 50px;
@@ -30,7 +30,7 @@ div.gauche img
 div.droite
 {
     font-family: 'Kulim Park', sans-serif;
-    height: 300px;
+    height: auto;
     display: grid;
     grid-template-columns: 550px;
     align-items: start;
@@ -40,7 +40,7 @@ div.droite
 
 div.bas_droite
 {
-    height: 200px;
+    height: auto;
 }
 
 div.haut_droite

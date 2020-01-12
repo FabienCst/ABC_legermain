@@ -16,8 +16,8 @@
             echo $this->Form->control('prenom');
             echo $this->Form->control('mail');
             echo $this->Form->control('telephone');
-            echo $this->Form->file('cv',['type' => 'file']);
-            echo $this->Form->file('lettre_motivation',['type' => 'file']);
+            echo $this->Form->file('cv',['type' => 'file'],['empty' => false]);
+            echo $this->Form->file('lettre_motivation',['type' => 'file'],['empty' => false]);
         ?>
     </fieldset>
 </section>

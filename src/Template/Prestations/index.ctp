@@ -4,12 +4,7 @@
  * @var \App\Model\Entity\Prestation[]|\Cake\Collection\CollectionInterface $prestations
  */
 ?>
-$this->layout = 'admin';
 <?= $this->Html->css('admin_realisation.css') ?>
-
-<div class="ajout">
-    <a href="/prestations/add"><img width="170" height="170" src="img/plus2.svg" ><a>
-</div>
 
 <?php foreach ($prestations as $prestation): ?>
 

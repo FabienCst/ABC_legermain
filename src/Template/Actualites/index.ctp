@@ -4,12 +4,7 @@
  * @var \App\Model\Entity\Actualite[]|\Cake\Collection\CollectionInterface $actualites
  */
 ?>
-$this->layout = 'admin';
 <?= $this->Html->css('admin_realisation.css') ?>
-
-<div class="ajout">
-    <a href="/actualites/add"><img width="170" height="170" src="img/plus2.svg" ><a>
-</div>
 
 <?php foreach ($actualites as $actualite): ?>
 

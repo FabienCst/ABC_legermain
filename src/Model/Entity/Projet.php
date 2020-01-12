@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  * @property string $nom
  * @property string $prenom
  * @property string $mail
+ * @property string $telephone
  * @property string $adresse
  * @property string $code_postal
  * @property string $ville
@@ -32,6 +33,7 @@ class Projet extends Entity
         'nom' => true,
         'prenom' => true,
         'mail' => true,
+        'telephone' => true,
         'adresse' => true,
         'code_postal' => true,
         'ville' => true,

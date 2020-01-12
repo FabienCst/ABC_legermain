@@ -4,56 +4,45 @@
  * @var \App\Model\Entity\Projet $projets
  */
 ?>
-$this->layout = 'admin';
+<?= $this->Html->css('admin_candidatures.css') ?>
+
+<?php foreach($projets as $projet):?>
 
 <section class="content">
 
-    <?php foreach($projets as $projet):?>
+        <div class="droite">
+            <div class="haut_droite">
+                <div class="champs">Demande effectuée le </div>
+                <div class="contenu"><?= h($projet->date) ?></div>
+            </div>
+            <div class="milieu_droite">
+                <div class="champs" >Nom</div>
+                <div class="contenu" ><?= h($projet->nom) ?></div>
+                <div class="champs" >Prénom</div>
+                <div class="contenu" ><?= h($projet->prenom) ?></div>
+                <div class="champs" >Mail</div>
+                <div class="contenu" ><?= h($projet->mail) ?></div>
+                <div class="champs" >Téléphone</div>
+                <div class="contenu" ><?= h($projet->telephone) ?></div>
+                <div class="champs" >Adresse</div>
+                <div class="contenu" ><?= h($projet->adresse) ?></div>
+                <div class="champs" >Code postal</div>
+                <div class="contenu" ><?= h($projet->code_postal) ?></div>
+                <div class="champs" >Ville</div>
+                <div class="contenu" ><?= h($projet->ville) ?></div>
+                <div class="champs" >Description</div>
+            </div>
+            <div class="bas_droite">
+                <div class="contenu" ><?= h($projet->description) ?></div>
+            </div>
+        </div>
 
-    <h3><?= h($projet->idProjet) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Nom') ?></th>
-            <td><?= h($projet->nom) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Prenom') ?></th>
-            <td><?= h($projet->prenom) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Mail') ?></th>
-            <td><?= h($projet->mail) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Adresse') ?></th>
-            <td><?= h($projet->adresse) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Code Postal') ?></th>
-            <td><?= h($projet->code_postal) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Ville') ?></th>
-            <td><?= h($projet->ville) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Type') ?></th>
-            <td><?= h($projet->type) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('IdProjet') ?></th>
-            <td><?= $this->Number->format($projet->idProjet) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Date') ?></th>
-            <td><?= h($projet->date) ?></td>
-        </tr>
-    </table>
-    <div class="row">
-        <h4><?= __('Description') ?></h4>
-        <?= $this->Text->autoParagraph(h($projet->description)); ?>
-    </div>
-
-    <?php endforeach; ?>
+        <div class="boutons">
+            <a><div class="btn">
+                 <?= $this->Form->postLink(__('Supprimer'), ['action' => 'deleteProjet', $projet->idProjet], ['confirm' => __('Etes-vous sur de vouloir supprimer cette demande de devis ?')]) ?>
+            </div><a>
+        </div>
 
 </section>
+
+<?php endforeach; ?>

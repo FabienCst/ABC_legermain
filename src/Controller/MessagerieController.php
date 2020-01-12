@@ -30,12 +30,22 @@ class MessagerieController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $postulant = $this->Postulants->get($id);
         if ($this->Postulants->delete($postulant)) {
-            $this->Flash->success(__('Le postulant a été supprimer.'));
+            return $this->redirect(['action' => 'candidatures']);
         } else {
-            $this->Flash->error(__('Le postulant n\'a pas pu être supprimé.'));
+            $this->Flash->error(__('La candidature n\'a pas pu être supprimé.'));
         }
+    }
 
-        return $this->redirect(['action' => 'index']);
+    public function deleteProjet($id = null)
+    {
+        $this->loadModel('Offres');
+        $this->request->allowMethod(['post', 'delete']);
+        $offre = $this->Offres->get($id);
+        if ($this->Offres->delete($offre)) {
+            return $this->redirect(['action' => 'devis']);
+        } else {
+            $this->Flash->error(__('La demande de devis n\'a pas pu être supprimé.'));
+        }
     }
 
     public function isAuthorized($administrateur) {

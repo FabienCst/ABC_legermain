@@ -66,6 +66,12 @@ class ProjetsTable extends Table
             ->notEmptyString('mail');
 
         $validator
+            ->scalar('telephone')
+            ->maxLength('telephone', 20)
+            ->requirePresence('telephone', 'create')
+            ->notEmptyString('telephone');
+
+        $validator
             ->scalar('adresse')
             ->maxLength('adresse', 100)
             ->requirePresence('adresse', 'create')

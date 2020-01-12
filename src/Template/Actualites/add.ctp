@@ -14,10 +14,10 @@
             <?php
                 echo $this->Form->control('titre');
                 echo $this->Form->control('description');
-                echo $this->Form->file('fichier',['type' => 'file']);
+                echo $this->Form->file('fichier',['type' => 'file'],['empty' => false]);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit')) ?>
+        <?= $this->Form->button(__('Ajouter')) ?>
         <?= $this->Form->end() ?>
     </div>
 

@@ -29,15 +29,6 @@ div.droite
 }
 
 
-div.milieu_droite
-{
-    height: auto;
-    display: grid;
-    grid-template-columns: 250px 450px;
-    align-items: start;
-    justify-content: space-between;
-}
-
 div.bas_droite
 {
     height: auto;
@@ -45,7 +36,7 @@ div.bas_droite
 
 div.haut_droite
 {
-    height: 50px;
+    height: 245px;
     display: grid;
     grid-template-columns: 250px 450px;
     align-items: start;

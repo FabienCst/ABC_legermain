@@ -143,10 +143,6 @@ class PrestationsController extends AppController
             'conditions' => array('Realisations.idPrestation' => $id)
         ));
 
-        foreach($realisations as $realisation) {
-            $this->setAction(["controller" => "Realisations"],['action' => 'deleteFromPrestation', $realisation->idRealisation]);
-        }
-
         $this->request->allowMethod(['post', 'delete']);
         $prestation = $this->Prestations->get($id);
         if ($this->Prestations->delete($prestation)) {
