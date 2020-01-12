@@ -43,7 +43,7 @@ $cakeDescription = 'ABC Legermain | Accueil';
     	<div class="logo">
     		<?= $this->Html->image('abc-logo.png') ?>
     	<ul>
-    		<li><a href="#">Accueil</a></li>
+    		<li><?= $this->Html->link(__('Accueil'), ['controller' => 'Pages' , 'action' => 'display']) ?></li>
     		<li>
                 <svg class="separation1" viewBox="0 0 3 17.528">
                     <path fill="rgba(0,0,0,0)" stroke="rgba(255,255,255,1)" stroke-width="3px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="separation1" d="M 0 0 L 0 17.527587890625">
@@ -96,9 +96,9 @@ $cakeDescription = 'ABC Legermain | Accueil';
     </section>
     <section class="bande_labels">
         <div class="labels">
-            <a href="https://www.qualibat.com/" ><?= $this->Html->image('label-qualibat.png') ?></a>
-            <a href="https://www.fondation-patrimoine.org/" >  <?= $this->Html->image('label-patrimoine.png') ?></a>
-            <a href="https://www.artisanat.fr/artisan/valoriser-mon-activite/obtenir-un-titre-de-maitre-artisan" >   <?= $this->Html->image('label-maitre.png') ?></a>
+            <a href="https://www.qualibat.com/" onclick="window.open(this.href); return false;"><?= $this->Html->image('label-qualibat.png') ?></a>
+            <a href="https://www.fondation-patrimoine.org/"onclick="window.open(this.href); return false;" >  <?= $this->Html->image('label-patrimoine.png') ?></a>
+            <a href="https://www.artisanat.fr/artisan/valoriser-mon-activite/obtenir-un-titre-de-maitre-artisan" onclick="window.open(this.href); return false;">   <?= $this->Html->image('label-maitre.png') ?></a>
         </div>
     </section>
     <section class="content">
@@ -110,7 +110,7 @@ $cakeDescription = 'ABC Legermain | Accueil';
     <section class="prestations">
         <?php foreach($prestations as $prestation):?>
         <div class="presta1">
-            <img src="/img/prestations/<?= $prestation->image ?>" alt="prestation">
+            <a href="/galerie-realisations/index/<?= $prestation->idPrestation ?>"><img src="/img/prestations/<?= $prestation->image ?>" alt="prestation"></a>
             <h1><?= $prestation->sous_titre ?></h1>
             <p><?= $prestation->description ?></p>
 

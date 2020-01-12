@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use Cake\Auth\DefaultPasswordHasher;
@@ -7,7 +8,7 @@ use Cake\Filesystem\Folder;
 use Cake\Filesystem\File;
 
 /**
- * Realisations Controller
+ * Contrôleur de l'objet "Realisations"
  *
  * @property \App\Model\Table\RealisationsTable $Realisations
  *
@@ -16,7 +17,9 @@ use Cake\Filesystem\File;
 class RealisationsController extends AppController
 {
     /**
-     * Index method
+     * La methode "index" va être la première méthode appelée lors de la sollicitation du Contrôleur "Realisations".
+     *
+     * Elle fait le lien entre le model et la vue dans l'onglet "Realisations" de la partie admin.
      *
      * @return \Cake\Http\Response|null
      */
@@ -30,25 +33,9 @@ class RealisationsController extends AppController
     }
 
     /**
-     * View method
+     * La méthode "add" va être responsable de l'ajout de réalisations dans la base de données.
      *
-     * @param string|null $id Realisation id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $realisation = $this->Realisations->get($id, [
-            'contain' => [],
-        ]);
-
-        $this->set('realisation', $realisation);
-
-        $this->viewBuilder()->setLayout('admin');
-    }
-
-    /**
-     * Add method
+     * Elle fait le lien entre le modèle et la vue dans l'onglet "Ajouter une réalisation" de la partie admin.
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
@@ -64,8 +51,6 @@ class RealisationsController extends AppController
             array_push($titre_prestations, $prestation->titre);
         }
         $this->set('titre_prestations',$titre_prestations);
-
-
 
         $realisation = $this->Realisations->newEntity();
         if ($this->request->is('post')) {
@@ -91,11 +76,9 @@ class RealisationsController extends AppController
                 $realisation->image = $myname;
 
                 if ($this->Realisations->save($realisation)) {
-                    $this->Flash->success(__('The realisation has been saved.'));
 
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__('The realisation could not be saved. Please, try again.'));
 
             }
         }
@@ -105,11 +88,12 @@ class RealisationsController extends AppController
     }
 
     /**
-     * Edit method
+     * La méthode "edit" va être responsable de la modification de réalisations en base de données.
      *
-     * @param string|null $id Realisation id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * Elle fait le lien entre le modèle et la vue pour modifier une réalisation dans la partie admin.
+     *
+     * @param null $id
+     * @return \Cake\Http\Response|null
      */
     public function edit($id = null)
     {
@@ -151,12 +135,9 @@ class RealisationsController extends AppController
                 $realisation->image = $myname;
 
                 if ($this->Realisations->save($realisation)) {
-                    $this->Flash->success(__('The realisation has been saved.'));
 
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__('The realisation could not be saved. Please, try again.'));
-
             }
         }
         $this->set(compact('realisation'));
@@ -165,9 +146,11 @@ class RealisationsController extends AppController
     }
 
     /**
-     * Delete method
+     * La méthode "delete" va être responsable de la suppression de réalisations en base de données.
      *
-     * @param string|null $id Realisation id.
+     * Elle fait le lien entre le modèle et la vue pour supprimer une réalisation dans la partie admin.
+     *
+     * @param string|null $id Actualite id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -176,16 +159,18 @@ class RealisationsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $realisation = $this->Realisations->get($id);
         if ($this->Realisations->delete($realisation)) {
-            $this->Flash->success(__('The realisation has been deleted.'));
-        } else {
-            $this->Flash->error(__('The realisation could not be deleted. Please, try again.'));
+            return $this->redirect(['action' => 'index']);
         }
-
-        return $this->redirect(['action' => 'index']);
 
         $this->viewBuilder()->setLayout('admin');
     }
 
+    /**
+     * La méthode "isAuthorized" determine si l'utilisateur peut acceder ou non à ce contenu.
+     *
+     * @param $administrateur
+     * @return bool
+     */
     public function isAuthorized($administrateur) {
 
         $action = $this->request->getParam('action');

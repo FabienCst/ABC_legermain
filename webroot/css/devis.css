@@ -15,7 +15,6 @@ section.content
     color: #855D43;
 }
 
-/*
 div.btn_devis
 {
     display: grid;
@@ -52,7 +51,7 @@ a:hover div.btn_devis
     background: #316868;
     text-decoration: none;
 }
-*/
+
 button
 {
     display: grid;
@@ -69,6 +68,23 @@ button
     height: auto;
     margin-left: 42.5%;
 
+}
+
+input[type="submit"]
+{
+    display: grid;
+    grid-template-columns: auto;
+    box-shadow: 0 1px 12px #000000;
+    border-radius: 100px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    background: #2A5858;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    width: auto;
+    height: auto;
+    margin-left: 42.5%;
 }
 
 button:hover

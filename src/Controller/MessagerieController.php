@@ -2,10 +2,20 @@
 
 namespace App\Controller;
 
-
+/**
+ * Contrôleur de la page pour visualiser les candidatures et les demandes de devis du coté de la partie admin.
+ *
+ * Class MessagerieController
+ * @package App\Controller
+ */
 class MessagerieController extends AppController
 {
 
+    /**
+     * La méthode "devis" fait le lien entre le modèle "Projets" et la vue.
+     *
+     * Elle se charge de mettre à disposition les informations des demandes de devis.
+     */
     public function devis()
     {
         $this->loadModel('Projets');
@@ -15,6 +25,11 @@ class MessagerieController extends AppController
         $this->viewBuilder()->setLayout('admin');
     }
 
+    /**
+     * La méthode "candidatures" fait le lien entre le modèle "Postulants" et la vue.
+     *
+     * Elle se charge de mettre à disposition les informations des candidatures.
+     */
     public function candidatures()
     {
         $this->loadModel('Postulants');
@@ -24,6 +39,12 @@ class MessagerieController extends AppController
         $this->viewBuilder()->setLayout('admin');
     }
 
+    /**
+     * La méthode "deleteDevis" va être responsable de la suppression d'une demande de devis en base de données.
+     *
+     * @param null $id
+     * @return \Cake\Http\Response|null
+     */
     public function deleteDevis($id = null)
     {
         $this->loadModel('Postulants');
@@ -31,23 +52,31 @@ class MessagerieController extends AppController
         $postulant = $this->Postulants->get($id);
         if ($this->Postulants->delete($postulant)) {
             return $this->redirect(['action' => 'candidatures']);
-        } else {
-            $this->Flash->error(__('La candidature n\'a pas pu être supprimé.'));
         }
     }
 
+    /**
+     * La méthode "deleteProjet" va être responsable de la suppression d'une candidature en base de données.
+     *
+     * @param null $id
+     * @return \Cake\Http\Response|null
+     */
     public function deleteProjet($id = null)
     {
-        $this->loadModel('Offres');
+        $this->loadModel('Projets');
         $this->request->allowMethod(['post', 'delete']);
-        $offre = $this->Offres->get($id);
-        if ($this->Offres->delete($offre)) {
+        $projet = $this->Projets->get($id);
+        if ($this->Projets->delete($projet)) {
             return $this->redirect(['action' => 'devis']);
-        } else {
-            $this->Flash->error(__('La demande de devis n\'a pas pu être supprimé.'));
         }
     }
 
+    /**
+     * La méthode "isAuthorized" determine si l'utilisateur peut acceder ou non à ce contenu.
+     *
+     * @param $administrateur
+     * @return bool
+     */
     public function isAuthorized($administrateur) {
 
         $action = $this->request->getParam('action');

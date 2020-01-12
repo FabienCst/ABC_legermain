@@ -6,6 +6,7 @@
 ?>
 <?= $this->Html->css('devis.css') ?>
 
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 <section class="sec1"></section>
 <section class="form-style-8">
@@ -23,8 +24,10 @@
             echo $this->Form->control('type',['options' => $titre_prestations]);
         ?>
     </fieldset>
+    <div class="g-recaptcha" data-sitekey="6LdBns4UAAAAANkoYPrj8tP2O3RWMZUgHXLueGok"></div>
 </section>
 <div class="btn-submit-devis">
-    <?= $this->Form->button(__('Demander un Devis')) ?>
+    <?= $this->Form->submit(__('Demander un Devis')) ?>
 </div>
 <?= $this->Form->end() ?>
+

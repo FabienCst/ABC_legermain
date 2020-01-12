@@ -5,7 +5,7 @@ use Cake\Auth\DefaultPasswordHasher;
 use App\Controller\AppController;
 
 /**
- * Prestations Controller
+ * Contrôleur de l'objet "Prestations"
  *
  * @property \App\Model\Table\PrestationsTable $Prestations
  *
@@ -14,7 +14,9 @@ use App\Controller\AppController;
 class PrestationsController extends AppController
 {
     /**
-     * Index method
+     * La methode "index" va être la première méthode appelée lors de la sollicitation du Contrôleur "Prestations".
+     *
+     * Elle fait le lien entre le model et la vue dans l'onglet "Prestations" de la partie admin.
      *
      * @return \Cake\Http\Response|null
      */
@@ -28,25 +30,9 @@ class PrestationsController extends AppController
     }
 
     /**
-     * View method
+     * La méthode "add" va être responsable de l'ajout de prestations dans la base de données.
      *
-     * @param string|null $id Prestation id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $prestation = $this->Prestations->get($id, [
-            'contain' => [],
-        ]);
-
-        $this->set('prestation', $prestation);
-
-        $this->viewBuilder()->setLayout('admin');
-    }
-
-    /**
-     * Add method
+     * Elle fait le lien entre le modèle et la vue dans l'onglet "Ajouter une prestation" de la partie admin.
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
@@ -63,11 +49,6 @@ class PrestationsController extends AppController
             $mypath = "img\prestations\\".$myname;
 
             if(move_uploaded_file($mytmp,WWW_ROOT.$mypath)){
-            //if(copy($mytmp,WWW_ROOT.$mypath)){
-
-                // $prestation = $this->Prestations->patchEntity($prestation, $this->request->getData());
-
-
 
                 $prestation->titre = $this->request->getData()['titre'];
                 $prestation->sous_titre = $this->request->getData()['sous_titre'];
@@ -75,11 +56,8 @@ class PrestationsController extends AppController
                 $prestation->image = $myname;
 
                 if ($this->Prestations->save($prestation)) {
-                    $this->Flash->success(__('The prestation has been saved.'));
-
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__('The prestation could not be saved. Please, try again.'));
 
             }
         }
@@ -89,9 +67,11 @@ class PrestationsController extends AppController
     }
 
     /**
-     * Edit method
+     * La méthode "edit" va être responsable de la modification de prestations en base de données.
      *
-     * @param string|null $id Prestation id.
+     * Elle fait le lien entre le modèle et la vue pour modifier une prestation dans la partie admin.
+     *
+     * @param string|null $id Actualite id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -117,11 +97,9 @@ class PrestationsController extends AppController
                 $prestation->image = $myname;
 
                 if ($this->Prestations->save($prestation)) {
-                    $this->Flash->success(__('The prestation has been saved.'));
 
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__('The prestation could not be saved. Please, try again.'));
             }
         }
         $this->set(compact('prestation'));
@@ -130,11 +108,12 @@ class PrestationsController extends AppController
     }
 
     /**
-     * Delete method
+     * La méthode "delete" va être responsable de la suppression de prestations en base de données.
      *
-     * @param string|null $id Prestation id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * Elle fait le lien entre le modèle et la vue pour supprimer une prestation dans la partie admin.
+     *
+     * @param null $id
+     * @return \Cake\Http\Response|null
      */
     public function delete($id = null)
     {
@@ -146,14 +125,17 @@ class PrestationsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $prestation = $this->Prestations->get($id);
         if ($this->Prestations->delete($prestation)) {
-            $this->Flash->success(__('The prestation has been deleted.'));
-        } else {
-            $this->Flash->error(__('The prestation could not be deleted. Please, try again.'));
+            return $this->redirect(['action' => 'index']);
         }
 
-        return $this->redirect(['action' => 'index']);
     }
 
+    /**
+     * La méthode "isAuthorized" determine si l'utilisateur peut acceder ou non à ce contenu.
+     *
+     * @param $administrateur
+     * @return bool
+     */
     public function isAuthorized($administrateur) {
 
         $action = $this->request->getParam('action');

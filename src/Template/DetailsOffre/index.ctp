@@ -30,6 +30,12 @@
                         <h2 class="champs"> Experience </h2>
                         <h2 class="contenue"><?= h($offre->exp_requise) ?></h2>
 
+                        <h2 class="champs"> Date debut </h2>
+                        <h2 class="contenue"><?= h($offre->date_deb) ?></h2>
+
+                        <h2 class="champs"> Date fin </h2>
+                        <h2 class="contenue"><?= h($offre->date_fin) ?></h2>
+
                     </div>
 
         </div>

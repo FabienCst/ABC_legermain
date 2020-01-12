@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
 
 /**
- * Actualites Controller
+ * Contrôleur de l'objet "Actualites"
  *
  * @property \App\Model\Table\ActualitesTable $Actualites
  *
@@ -13,7 +14,9 @@ use App\Controller\AppController;
 class ActualitesController extends AppController
 {
     /**
-     * Index method
+     * La methode "index" va être la première méthode appelée lors de la sollicitation du Contrôleur "Actualites".
+     *
+     * Elle fait le lien entre le model et la vue dans l'onglet "Actualités" de la partie admin.
      *
      * @return \Cake\Http\Response|null
      */
@@ -27,25 +30,9 @@ class ActualitesController extends AppController
     }
 
     /**
-     * View method
+     * La méthode "add" va être responsable de l'ajout d'actualités dans la base de données.
      *
-     * @param string|null $id Actualite id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $actualite = $this->Actualites->get($id, [
-            'contain' => [],
-        ]);
-
-        $this->set('actualite', $actualite);
-
-        $this->viewBuilder()->setLayout('admin');
-    }
-
-    /**
-     * Add method
+     * Elle fait le lien entre le modèle et la vue dans l'onglet "Ajouter une actualité" de la partie admin.
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
@@ -68,12 +55,9 @@ class ActualitesController extends AppController
                 $actualite->image = $myname;
 
                 if ($this->Actualites->save($actualite)) {
-                    $this->Flash->success(__('The actualite has been saved.'));
 
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__('The actualite could not be saved. Please, try again.'));
-
             }
         }
         $this->set(compact('actualite'));
@@ -82,7 +66,9 @@ class ActualitesController extends AppController
     }
 
     /**
-     * Edit method
+     * La méthode "edit" va être responsable de la modification d'actualités en base de données.
+     *
+     * Elle fait le lien entre le modèle et la vue pour modifier une actualité dans la partie admin.
      *
      * @param string|null $id Actualite id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
@@ -109,11 +95,9 @@ class ActualitesController extends AppController
                 $actualite->image = $myname;
 
                 if ($this->Actualites->save($actualite)) {
-                    $this->Flash->success(__('The actualite has been saved.'));
 
                     return $this->redirect(['action' => 'index']);
                 }
-                $this->Flash->error(__('The actualite could not be saved. Please, try again.'));
 
             }
         }
@@ -123,7 +107,9 @@ class ActualitesController extends AppController
     }
 
     /**
-     * Delete method
+     * La méthode "delete" va être responsable de la suppression d'actualités en base de données.
+     *
+     * Elle fait le lien entre le modèle et la vue pour supprimer une actualité dans la partie admin.
      *
      * @param string|null $id Actualite id.
      * @return \Cake\Http\Response|null Redirects to index.
@@ -134,16 +120,18 @@ class ActualitesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $actualite = $this->Actualites->get($id);
         if ($this->Actualites->delete($actualite)) {
-            $this->Flash->success(__('The actualite has been deleted.'));
-        } else {
-            $this->Flash->error(__('The actualite could not be deleted. Please, try again.'));
+            return $this->redirect(['action' => 'index']);
         }
-
-        return $this->redirect(['action' => 'index']);
 
         $this->viewBuilder()->setLayout('admin');
     }
 
+    /**
+     * La méthode "isAuthorized" determine si l'utilisateur peut acceder ou non à ce contenu.
+     *
+     * @param $administrateur
+     * @return bool
+     */
     public function isAuthorized($administrateur) {
 
         $action = $this->request->getParam('action');

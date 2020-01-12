@@ -6,6 +6,8 @@
 ?>
 <?= $this->Html->css('admin_candidatures.css') ?>
 
+<h1>Candidatures</h1>
+
 <?php foreach($postulants as $postulant):?>
 
 <section class="content">

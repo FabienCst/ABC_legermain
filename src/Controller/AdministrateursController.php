@@ -4,7 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Administrateurs Controller
+ * Contrôleur de l'objet "Administrateurs"
  *
  * @property \App\Model\Table\AdministrateursTable $Administrateurs
  *
@@ -13,13 +13,16 @@ use App\Controller\AppController;
 class AdministrateursController extends AppController
 {
 
+    /**
+     * La methode "initialize" va être la première méthode appelée lors de la sollicitation du contrôleur "Administrateurs".
+     */
     public function initialize() {
         parent::initialize();
         $this->Auth->allow(['logout']);
     }
 
     /**
-     * Index method
+     * La methode "index" va être la deuxième méthode appelée si l'initalisation du contrôleur est concluante.
      *
      * @return \Cake\Http\Response|null
      */
@@ -31,9 +34,12 @@ class AdministrateursController extends AppController
     }
 
     /**
-     * Index method
+     * La methode "login" va être responsable de la connexion d'un utlisateur.
      *
-     **/
+     * Elle fait le lien entre le modèle et la vue pour l'onglet de connexion.
+     *
+     * @return \Cake\Http\Response|null
+     */
     public function login() {
         if ($this->request->is('post')) {
 
@@ -46,7 +52,11 @@ class AdministrateursController extends AppController
         }
     }
 
-
+    /**
+     * La methode "logout" va être responsable de la deconnexion d'un utlisateur.
+     *
+     * @return \Cake\Http\Response|null
+     */
     public function logout() {
         $this->Flash->success('Vous avez été déconnecté.');
         $this->Auth->logout();
@@ -54,23 +64,9 @@ class AdministrateursController extends AppController
     }
 
     /**
-     * View method
+     * La méthode "add" va être responsable de l'ajout d'administrateurs dans la base de données.
      *
-     * @param string|null $id Administrateur id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $administrateur = $this->Administrateurs->get($id, [
-            'contain' => [],
-        ]);
-
-        $this->set('administrateur', $administrateur);
-    }
-
-    /**
-     * Add method
+     * Elle fait le lien entre le modèle et la vue dans l'onglet "Ajouter une actualité" de la partie admin.
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
@@ -90,7 +86,7 @@ class AdministrateursController extends AppController
     }
 
     /**
-     * Edit method
+     * La méthode "edit" va être responsable de la modification d'administrateurs en base de données.
      *
      * @param string|null $id Administrateur id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
@@ -114,7 +110,7 @@ class AdministrateursController extends AppController
     }
 
     /**
-     * Delete method
+     * La méthode "delete" va être responsable de la suppression d'administrateurs en base de données.
      *
      * @param string|null $id Administrateur id.
      * @return \Cake\Http\Response|null Redirects to index.
@@ -133,6 +129,12 @@ class AdministrateursController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
+    /**
+     * La méthode "isAuthorized" determine si l'utilisateur peut acceder ou non à ce contenu.
+     *
+     * @param $administrateur
+     * @return bool
+     */
     public function isAuthorized($administrateur) {
 
         $action = $this->request->getParam('action');

@@ -6,6 +6,8 @@
 ?>
 <?= $this->Html->css('admin_candidatures.css') ?>
 
+<h1>Demandes de devis</h1>
+
 <?php foreach($projets as $projet):?>
 
 <section class="content">

@@ -20,8 +20,8 @@ $cakeDescription = 'ABC Legermain | Login';
 <h1>ESPACE ADMIN</h1>
 
 <?= $this->Form->create() ?>
-<?= $this->Form->control('identifiant', array('label' => "Identifiant")) ?>
-<?= $this->Form->control('mot_de_passe', array('label' => "Mot de passe", 'type' => 'password')) ?>
+<?= $this->Form->control('identifiant', array('label' => "Identifiant (admin)")) ?>
+<?= $this->Form->control('mot_de_passe', array('label' => "Mot de passe (admin)", 'type' => 'password')) ?>
     <div class="btn-connex-login">
         <?= $this->Form->button(__('Se Connecter')) ?>
     </div>

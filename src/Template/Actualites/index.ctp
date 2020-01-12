@@ -6,6 +6,8 @@
 ?>
 <?= $this->Html->css('admin_realisation.css') ?>
 
+<h1>Actualités</h1>
+
 <?php foreach ($actualites as $actualite): ?>
 
 <section class="content">

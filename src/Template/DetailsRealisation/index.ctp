@@ -6,27 +6,31 @@
 ?>
 <?= $this->Html->css('details_realisation.css') ?>
 
-<section class="sec1"></section>
+<?php foreach($realisation as $realisation):?>
+
+<section class="sec1">
+    <img src="/img/realisations/principale/<?= $realisation->image ?>" >
+</section>
 
 <section class="content">
 
-    <?php foreach($realisation as $realisation):?>
+            <div class="date">
+                <?= $realisation->date ?>
+            </div>
 
-        <div class="date">
-            <?= $realisation->date ?>
-        </div>
+            <div class="titre">
+                <?= $realisation->titre ?>
+            </div>
 
-        <div class="titre">
-            <?= $realisation->titre ?>
-        </div>
+            <div class="description">
+                <?= $this->Text->autoParagraph($realisation->description); ?>
+            </div>
 
-        <div class="description">
-            <?= $this->Text->autoParagraph($realisation->description); ?>
-        </div>
-
-    <?php endforeach; ?>
+            <img src="/img/realisations/principale/<?= $realisation->image ?>" width=100% height="auto">
 
 </section>
+
+<?php endforeach; ?>
 
 <div class="btn_devis">
     <a href="/devis/index";">

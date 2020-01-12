@@ -1,10 +1,37 @@
 <?php
+
 namespace App\Controller;
 
+//App::import("recaptchalib.php");
 
+use Cake\Event\Event;
+
+/**
+ * Contrôleur de la page pour formuler une demande de devis.
+ *
+ * Class DevisController
+ * @package App\Controller
+ */
 class DevisController extends AppController
 {
+    /**
+     * La méthode "beforeFilter" s'assure de permettre aux utilisateurs d'acceder à ce contenu sans authentification.
+     *
+     * @param Event $event
+     * @return \Cake\Http\Response|void|null
+     */
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow();
+    }
 
+    /**
+     * La méthode "index" fait le lien entre le modèle "Prestations" et la vue.
+     *
+     * Elle se charge d'ajouter les demandes de devis des différents utilisateurs.
+     *
+     * @return \Cake\Http\Response|null
+     */
     public function index()
     {
         $this->loadModel('Prestations');
@@ -33,18 +60,12 @@ class DevisController extends AppController
             $projet->date = $date;
 
             if ($this->Projets->save($projet)) {
-                $this->Flash->success(__('Votre demande de devis a bien été envoyé.'));
 
                 return $this->redirect(['controller' => 'Pages' , 'action' => 'display']);
             }
-            $this->Flash->error(__('Votre demande de devis n\'a malheureusement pas pu être envoyé.'));
         }
         $this->set('projet',$projet);
 
         $this->set(compact('projets'));
-    }
-
-    public function isAuthorized($administrateur) {
-        return true;
     }
 }

@@ -73,6 +73,12 @@ Router::scope('/', function (RouteBuilder $routes) {
 
     $routes->connect('/admin/', ['controller' => 'Messagerie', 'action' => 'devis']);
 
+    $routes->connect('/administrateurs/add', ['controller' => 'Messagerie', 'action' => 'devis']);
+
+    $routes->connect('/administrateurs/edit', ['controller' => 'Messagerie', 'action' => 'devis']);
+
+    $routes->connect('/administrateurs/delete', ['controller' => 'Messagerie', 'action' => 'devis']);
+
     /**
      * Connect catchall routes for all controllers.
      *

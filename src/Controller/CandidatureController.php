@@ -1,17 +1,37 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Fabie
- * Date: 09/01/2020
- * Time: 01:28
- */
 
 namespace App\Controller;
 
+use Cake\Event\Event;
 
+/**
+ * Contrôleur de la page pour postuler à une offre d'emploi.
+ *
+ * Class CandidatureController
+ * @package App\Controller
+ */
 class CandidatureController extends AppController
 {
 
+    /**
+     * La méthode "beforeFilter" s'assure de permettre aux utilisateurs d'acceder à ce contenu sans authentification.
+     *
+     * @param Event $event
+     * @return \Cake\Http\Response|void|null
+     */
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow();
+    }
+
+    /**
+     * La méthode "index" fait le lien entre le modèle "postulants" et la vue.
+     *
+     * Elle se charge d'ajouter les candidatures des différents utilisateurs.
+     *
+     * @param null $idOffre
+     * @return \Cake\Http\Response|null
+     */
     public function index($idOffre = null)
     {
         $this->loadModel('Postulants');
@@ -40,11 +60,9 @@ class CandidatureController extends AppController
                 $postulant->lettre_motivation = $myname_lm;
 
                 if ($this->Postulants->save($postulant)) {
-                    $this->Flash->success(__('Votre candidature a bien été envoyé..'));
 
                     return $this->redirect(['controller' => 'Recrutement', 'action' => 'index']);
                 }
-                $this->Flash->error(__('Votre candidature n\'a malheureusement pas pu être envoyé.'));
             }
 
         }
@@ -52,9 +70,4 @@ class CandidatureController extends AppController
         $this->set('idOffre', $idOffre);
         $this->set('postulant', $postulant);
     }
-
-    public function isAuthorized($administrateur) {
-        return true;
-    }
-
 }

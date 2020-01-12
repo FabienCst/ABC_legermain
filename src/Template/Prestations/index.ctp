@@ -6,6 +6,8 @@
 ?>
 <?= $this->Html->css('admin_realisation.css') ?>
 
+<h1>Prestations</h1>
+
 <?php foreach ($prestations as $prestation): ?>
 
 <section class="content">
@@ -29,7 +31,7 @@
 
         <div class="boutons">
             <a><div class="btn">
-                <?= $this->Form->postLink(__('Supprimer'), ['action' => 'delete', $prestation->idPrestation], ['confirm' => __('Etes-vous sur de vouloir supprimer cette prestations ? La supprimer, supprimera toutes les réalisations qui lui sont associés')]) ?>
+                <?= $this->Form->postLink(__('Supprimer'), ['action' => 'delete', $prestation->idPrestation], ['confirm' => __('Etes-vous sur de vouloir supprimer cette prestation ?')]) ?>
             </div></a>
             <a><div class="btn">
                 <?= $this->Html->link(__('Modifier'), ['action' => 'edit', $prestation->idPrestation]) ?>

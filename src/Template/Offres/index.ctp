@@ -6,6 +6,8 @@
 ?>
 <?= $this->Html->css('admin_recrutement.css') ?>
 
+<h1>Offres d'emploi</h1>
+
 <?php foreach ($offres as $offre): ?>
 
 <section class="content">

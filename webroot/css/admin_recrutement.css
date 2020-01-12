@@ -99,3 +99,13 @@ a:hover img
     color: #8BC2C2;
     transition: 0.5s;
 }
+
+h1
+{
+    position: fixed;
+    font-size: 1.8em;
+    color: #155959;
+    margin-top: 4vh;
+    margin-left: 10vh;
+    font-family: 'Kulim Park', sans-serif;
+}

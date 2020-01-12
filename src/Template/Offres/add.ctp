@@ -6,6 +6,8 @@
 ?>
 <?= $this->Html->css('admin_realisation_addedit.css') ?>
 
+<h1>Ajouter une offre d'emploi</h1>
+
 <section class="content">
 
     <div class="form-style-8">

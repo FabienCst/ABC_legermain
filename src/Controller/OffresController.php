@@ -4,7 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Offres Controller
+ * Contrôleur de l'objet "Offres"
  *
  * @property \App\Model\Table\OffresTable $Offres
  *
@@ -13,7 +13,9 @@ use App\Controller\AppController;
 class OffresController extends AppController
 {
     /**
-     * Index method
+     * La methode "index" va être la première méthode appelée lors de la sollicitation du Contrôleur "Offres".
+     *
+     * Elle fait le lien entre le model et la vue dans l'onglet "Recrutement" de la partie admin.
      *
      * @return \Cake\Http\Response|null
      */
@@ -27,25 +29,9 @@ class OffresController extends AppController
     }
 
     /**
-     * View method
+     * La méthode "add" va être responsable de l'ajout d'offres dans la base de données.
      *
-     * @param string|null $id Offre id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $offre = $this->Offres->get($id, [
-            'contain' => [],
-        ]);
-
-        $this->set('offre', $offre);
-
-        $this->viewBuilder()->setLayout('admin');
-    }
-
-    /**
-     * Add method
+     * Elle fait le lien entre le modèle et la vue dans l'onglet "Ajouter une offres" de la partie admin.
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
@@ -56,11 +42,9 @@ class OffresController extends AppController
             $offre = $this->Offres->patchEntity($offre, $this->request->getData());
 
             if ($this->Offres->save($offre)) {
-                $this->Flash->success(__('The offre has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The offre could not be saved. Please, try again.'));
         }
         $this->set(compact('offre'));
 
@@ -68,11 +52,12 @@ class OffresController extends AppController
     }
 
     /**
-     * Edit method
+     * La méthode "edit" va être responsable de la modification d'offres en base de données.
      *
-     * @param string|null $id Offre id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * Elle fait le lien entre le modèle et la vue pour modifier une offre dans la partie admin.
+     *
+     * @param null $id
+     * @return \Cake\Http\Response|null
      */
     public function edit($id = null)
     {
@@ -83,11 +68,9 @@ class OffresController extends AppController
             $offre = $this->Offres->patchEntity($offre, $this->request->getData());
 
             if ($this->Offres->save($offre)) {
-                $this->Flash->success(__('The offre has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The offre could not be saved. Please, try again.'));
         }
         $this->set(compact('offre'));
 
@@ -95,25 +78,29 @@ class OffresController extends AppController
     }
 
     /**
-     * Delete method
+     * La méthode "delete" va être responsable de la suppression d'offres en base de données.
      *
-     * @param string|null $id Offre id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * Elle fait le lien entre le modèle et la vue pour supprimer une offre dans la partie admin.
+     *
+     * @param null $id
+     * @return \Cake\Http\Response|null
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $offre = $this->Offres->get($id);
         if ($this->Offres->delete($offre)) {
-            $this->Flash->success(__('The offre has been deleted.'));
-        } else {
-            $this->Flash->error(__('The offre could not be deleted. Please, try again.'));
+            return $this->redirect(['action' => 'index']);
         }
 
-        return $this->redirect(['action' => 'index']);
     }
 
+    /**
+     * La méthode "isAuthorized" determine si l'utilisateur peut acceder ou non à ce contenu.
+     *
+     * @param $administrateur
+     * @return bool
+     */
     public function isAuthorized($administrateur) {
 
         $action = $this->request->getParam('action');
