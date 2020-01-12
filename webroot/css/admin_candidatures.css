@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park&display=swap');
+
+section.content
+{
+    max-width: 60%;
+    min-width: 60%;
+    height: auto;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left: 35vh;
+    margin-right: auto;
+    border: 1px solid #CBECEC;
+    padding: 50px;
+
+    display: grid;
+    grid-template-columns: 900px 200px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+div.droite
+{
+    font-family: 'Kulim Park', sans-serif;
+    height: auto;
+    display: grid;
+    grid-template-columns: 900px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+
+div.milieu_droite
+{
+    height: auto;
+    display: grid;
+    grid-template-columns: 250px 450px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+div.bas_droite
+{
+    height: auto;
+}
+
+div.haut_droite
+{
+    height: 50px;
+    display: grid;
+    grid-template-columns: 250px 450px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+div.boutons
+{
+    font-family: 'Kulim Park', sans-serif;
+    height: 160px;
+    display: grid;
+    grid-template-columns: 200px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.contenu
+{
+    color: #8BC2C2;
+}
+
+.champs
+{
+    color: #155959;
+}
+
+.ajout
+{
+    position: fixed;
+    margin-top: 12vh;
+    margin-left: 7vh;
+}
+
+div.btn
+{
+    box-shadow: 0 1px 12px #000000;
+    border-radius: 100px;
+    padding: 10px 20px 10px 20px;
+    background: #2A5858;
+    text-decoration: none;
+    color: white;
+    width: auto;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover
+{
+    text-decoration: none;
+    color: #8BC2C2;
+    transition: 0.5s;
+}
+
+a:hover img
+{
+    color: #8BC2C2;
+    transition: 0.5s;
+}
