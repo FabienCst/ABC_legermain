@@ -1,8 +1,5 @@
 <?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Realisation[]|\Cake\Collection\CollectionInterface $realisations
- */
+
 ?>
 <?= $this->Html->css('recrutement.css') ?>
 

@@ -1,8 +1,5 @@
 <?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Projet $projets
- */
+
 ?>
 <?= $this->Html->css('admin_candidatures.css') ?>
 

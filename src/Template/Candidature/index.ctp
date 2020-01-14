@@ -1,29 +1,7 @@
 <?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Projet[]|\Cake\Collection\CollectionInterface $projets
- */
 
-/*
- // your secret key
-  $secret = "6LcePAATAAAAABjXaTsy7gwcbnbaF5XgJKwjSNwT";
-
-  // empty response
-  $response = null;
-
-  // check secret key
-  $reCaptcha = new ReCaptcha($secret);
-
-  // if submitted check response
-  if ($_POST["g-recaptcha-response"]) {
-      $response = $reCaptcha->verifyResponse(
-          $_SERVER["REMOTE_ADDR"],
-          $_POST["g-recaptcha-response"]
-      );
-  }
-*/
 ?>
-<?= $this->Html->css('devis.css') ?>
+<?= $this->Html->css('candidature.css') ?>
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
@@ -48,9 +26,10 @@
 
     <?= $this->Form->button(__('Envoyer la candidature')) ?>
     <?= $this->Form->end() ?>
-
-    <a href="/details-offre/index/<?php echo $idOffre; ?>";"><div class="btn_devis">
+</div>
+<div class="btn_return-devis">
+    <a href="/details-offre/index/<?php echo $idOffre; ?>";">
         <p>Annuler</p>
-    </div><a>
+    </div>
 
 </div>

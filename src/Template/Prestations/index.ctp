@@ -1,8 +1,5 @@
 <?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Prestation[]|\Cake\Collection\CollectionInterface $prestations
- */
+
 ?>
 <?= $this->Html->css('admin_realisation.css') ?>
 
