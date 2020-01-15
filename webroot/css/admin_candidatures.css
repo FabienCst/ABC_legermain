@@ -55,7 +55,7 @@ div.haut_droite
 div.boutons
 {
     font-family: 'Kulim Park', sans-serif;
-    height: 160px;
+    height: auto;
     display: grid;
     grid-template-columns: 200px;
     align-items: start;
@@ -89,6 +89,7 @@ div.btn
     color: white;
     width: auto;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 a{

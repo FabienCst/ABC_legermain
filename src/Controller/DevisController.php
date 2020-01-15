@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-//App::import("recaptchalib.php");
+//require 'recaptchalib.php';
 
 use Cake\Event\Event;
 

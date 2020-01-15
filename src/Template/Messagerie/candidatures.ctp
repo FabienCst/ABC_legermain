@@ -33,6 +33,9 @@
             <div class="btn">
                  <a href="/messagerie/candidatures" download="<?= h($postulant->lettre_motivation) ?>">Télécharger la lettre de motivation</a>
             </div>
+            <div class="btn">
+                 <a href="/qr/qr-code-postulant/<?= h($postulant->idPostulant) ?>">Exporter données</a>
+            </div>
             <a><div class="btn">
                  <?= $this->Form->postLink(__('Supprimer'), ['action' => 'deleteDevis', $postulant->idPostulant], ['confirm' => __('Etes-vous sur de vouloir supprimer cette candidature ?')]) ?>
             </div><a>

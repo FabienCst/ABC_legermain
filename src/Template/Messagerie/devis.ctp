@@ -40,6 +40,9 @@
             <a><div class="btn">
                  <?= $this->Form->postLink(__('Supprimer'), ['action' => 'deleteProjet', $projet->idProjet], ['confirm' => __('Etes-vous sur de vouloir supprimer cette demande de devis ?')]) ?>
             </div><a>
+            <div class="btn">
+                 <a href="/qr/qr-code-projet/<?= h($projet->idProjet) ?>">Exporter données</a>
+            </div>
         </div>
 
 </section>
