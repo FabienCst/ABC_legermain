@@ -65,7 +65,5 @@ class DevisController extends AppController
             }
         }
         $this->set('projet',$projet);
-
-        $this->set(compact('projets'));
     }
 }
