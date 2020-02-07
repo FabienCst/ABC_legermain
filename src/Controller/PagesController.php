@@ -28,8 +28,7 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
-
-    /**
+     /**
      * Displays a view
      *
      * @param array ...$path Path segments.
@@ -40,6 +39,16 @@ class PagesController extends AppController
      */
     public function display(...$path)
     {
+        // Chargement du model "Prestations"
+        $this->loadModel('Prestations');
+        $prestations = $this->Prestations->find('all', ['order' => 'Prestations.idPrestation ASC']);
+        $this->set('prestations',$prestations);
+
+        // Chargement du model "Actualites"
+        $this->loadModel('Actualites');
+        $actualites = $this->Actualites->find('all', ['order' => 'Actualites.idActualite ASC']);
+        $this->set('actualites',$actualites);
+
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');

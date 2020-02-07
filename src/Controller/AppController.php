@@ -27,7 +27,6 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
-
     /**
      * Initialization hook method.
      *
@@ -46,10 +45,38 @@ class AppController extends Controller
         ]);
         $this->loadComponent('Flash');
 
+        $this->loadComponent(
+            'Auth', [
+                'authorize'=> 'Controller',
+                'authenticate' => [
+                    'Form' => [
+                        'fields' => [
+                            'username' => 'identifiant',
+                            'password' => 'mot_de_passe'
+                        ],
+                        'userModel' => 'Administrateurs',
+                    ]
+                ],
+                'loginAction' => [
+                    'controller' => 'Administrateurs',
+                    'action' => 'login'
+                ],
+                // Si pas autorisé, on renvoit sur la page précédente
+                'unauthorizedRedirect' => $this->referer()
+            ]
+        );
+        // Autorise l'action display pour que notre controller de pages // continue de fonctionner.
+        $this->Auth->allow(['display']);
+
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+
+        $this->loadModel('Prestations');
+        $prestations = $this->Prestations->find('all', ['order' => 'Prestations.idPrestation ASC']);
+        $this->set('prestations',$prestations);
     }
+
 }

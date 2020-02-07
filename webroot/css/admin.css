@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park&display=swap');
+
+body
+{
+    margin: 0;
+    padding: 0;
+    padding-top: 80px;
+    font-family: sans-serif;
+}
+
+.separation1
+{
+    overflow: visible;
+    width: 3px;
+    height: 18px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: matrix(1,0,0,1,0,0);
+}
+
+nav
+{
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    transition: 0.8s;
+    font-size: 1.1em;
+    background: #155959;
+    height: 80px;
+    padding: 10px 50px;
+    box-shadow: 0 1px 12px #000000;
+}
+
+nav .logo img
+{
+    position: center;
+    height: 60px;
+    transition: 0.5s;
+}
+
+nav ul
+{
+    float: right;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li
+{
+    list-style: none;
+}
+
+nav ul li a
+{
+    line-height: 60px;
+    color: #fff;
+    padding: 5px 20px;
+    font-family: 'Kulim Park', sans-serif;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+nav ul li a:hover
+{
+    color: #58B8B8;
+}
+
+nav ul li ul {
+    display:none;
+    background: #155959;
+    transition: 0.5s;
+}
+
+nav ul li:hover ul {
+    display:block;
+}
+
+nav ul li:hover ul li {
+    float:none;
+}
+
+nav li ul {
+    position:absolute;
+}
+
+.responsive-bar
+{
+    display: none;
+}
+
+.form-style-8{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+
+.form-style-8 h1{
+    text-align: center;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+.form-style-8 textarea{
+    resize:none;
+    overflow: hidden;
+}
+.form-style-8 input[type="button"],
+.form-style-8 input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.form-style-8 input[type="button"]:hover,
+.form-style-8 input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+
+@media(max-width: 768px) {
+
+    .responsive-bar
+    {
+        display: block;
+        width: 100%;
+        height: 60px;
+        background: #155959;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        z-index: 1;
+        box-shadow: 0 1px 12px #000000;
+    }
+
+    .responsive-bar .logo img
+    {
+        float: left;
+        height: 40px;
+    }
+
+    .responsive-bar .menu img
+    {
+        float: right;
+        height: 40px;
+    }
+
+    nav
+    {
+        height: 60px;
+        background: #155959;
+        box-shadow: none;
+    }
+
+    nav .logo
+    {
+        display: none;
+    }
+
+    nav ul
+    {
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        background: #155959;
+        float: none;
+        display: none;
+    }
+
+    nav ul.active
+    {
+        display: block;
+    }
+
+    nav ul li
+    {
+        width: 100%;
+    }
+
+    nav ul li a
+    {
+        display: block;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        line-height: 50px !important;
+        text-transform: uppercase;
+    }
+
+    .separation1
+    {
+        display: none;
+    }
+}
